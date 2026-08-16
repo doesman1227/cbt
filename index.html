@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>認知行動療法｜まとめノート</title>
+<meta name="description" content="認知行動療法（CBT）の仕組み・科学的エビデンスと限界・実践テクニック（7ステップ認知行動療法、リアプレイザル、ソーシャルサポート分析）・日常への応用までを整理した個人のまとめノート。書き込めるワークシート付き。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+<script>
+  /* IntersectionObserverが使える環境でのみフェード演出を有効化する */
+  if ('IntersectionObserver' in window) document.documentElement.className = 'js';
+</script>
+<style>
+/* ============================================================
+   Palette — 藍と生成り（思考＝青／感情＝土／行動＝緑）
+   純黒・純白は使わない。
+   ============================================================ */
+:root{
+  color-scheme:light dark;
+
+  --paper:#f5f4f0;        /* 背景：生成り */
+  --paper-2:#efece5;
+  --surface:#fffefb;      /* カード */
+  --surface-2:#eae8e1;    /* 面の切り替え */
+  --ink:#333a42;          /* 文字：藍墨 */
+  --ink-2:#5e6771;
+  --ink-3:#8e959d;
+  --line:#e1ded5;
+  --line-2:#cdc9bd;
+
+  --think:#4f7391;        /* 思考・認知：藍 */
+  --feel:#ad6b56;         /* 感情：テラコッタ */
+  --act:#6c8a62;          /* 行動：草 */
+  --evi:#8a7a4b;          /* データ・エビデンス：カーキ */
+  --care:#a1584c;         /* 注意 */
+  --calm:#4f7391;         /* 主アクセント＝藍 */
+
+  --think-bg:#e7eef3; --feel-bg:#f6ebe6; --act-bg:#eaf0e7;
+  --evi-bg:#f2efe1;   --care-bg:#f7e9e6; --calm-bg:#e7eef3;
+
+  --sans:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --maxw:860px;
+  --r:14px;
+}
+
+/* ダーク：黒ではなく深い藍鼠をベースにする */
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#232830;
+    --paper-2:#282e36;
+    --surface:#2d333c;
+    --surface-2:#373e48;
+    --ink:#e6e8ea;
+    --ink-2:#b7bdc5;
+    --ink-3:#8b929b;
+    --line:#3f4650;
+    --line-2:#525b66;
+
+    --think:#8fb4d0;
+    --feel:#d99e87;
+    --act:#a3c096;
+    --evi:#c6b478;
+    --care:#dc9385;
+    --calm:#8fb4d0;
+
+    --think-bg:#2f3d49; --feel-bg:#413129; --act-bg:#333d31;
+    --evi-bg:#3d3928;   --care-bg:#41302c; --calm-bg:#2f3d49;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:2.05;letter-spacing:.025em;
+  font-weight:400;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:var(--calm);text-underline-offset:3px}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.wrap{width:min(100% - 44px,var(--maxw));margin-inline:auto}
+.wrap-wide{width:min(100% - 44px,1040px);margin-inline:auto}
+@media (max-width:640px){.wrap,.wrap-wide{width:calc(100% - 32px)}}
+section{padding:76px 0}
+@media (max-width:640px){section{padding:56px 0}}
+section + section{border-top:1px solid var(--line)}
+
+.sec-no{
+  font-family:var(--serif);font-size:12.5px;letter-spacing:.24em;color:var(--ink-3);
+  display:block;margin-bottom:14px;font-weight:500;
+}
+h2.sec{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.4vw,28px);
+  line-height:1.75;margin:0 0 20px;letter-spacing:.01em;
+}
+h3.sub{
+  font-family:var(--serif);font-weight:600;font-size:clamp(17px,2.4vw,19.5px);
+  margin:56px 0 16px;line-height:1.8;
+}
+h3.sub:first-of-type{margin-top:0}
+h4{font-size:15.5px;font-weight:700;margin:0 0 8px;line-height:1.8}
+p{margin:0 0 18px}
+.lede{color:var(--ink-2);font-size:15.5px;margin-bottom:34px}
+strong{font-weight:700;color:var(--ink)}
+.mb0{margin-bottom:0}
+
+/* ============================================================
+   Header
+   ============================================================ */
+header{
+  position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.hd{display:flex;align-items:center;gap:16px;height:60px}
+.logo{
+  font-family:var(--serif);font-weight:600;font-size:15.5px;color:var(--ink);
+  text-decoration:none;letter-spacing:.04em;flex:none;
+}
+.logo span{color:var(--ink-3);margin:0 1px}
+.menu{display:flex;gap:2px;list-style:none;margin:0 0 0 auto;padding:0}
+.grp{position:relative}
+.gbtn{
+  display:flex;align-items:center;gap:6px;padding:6px 12px;font-size:13px;font-family:inherit;
+  color:var(--ink-2);background:transparent;border:0;border-radius:8px;cursor:pointer;
+  transition:background .2s,color .2s;white-space:nowrap;line-height:1.9;
+}
+.gbtn::after{
+  content:"";width:5px;height:5px;border-right:1.2px solid currentColor;border-bottom:1.2px solid currentColor;
+  transform:rotate(45deg) translate(-1px,-1px);opacity:.6;transition:transform .2s;
+}
+.gbtn:hover{background:var(--surface-2);color:var(--ink)}
+.grp.active > .gbtn{color:var(--calm);background:var(--calm-bg);font-weight:500}
+.grp.open > .gbtn::after,.grp:hover > .gbtn::after{transform:rotate(-135deg) translate(-1px,-1px)}
+
+.sub{
+  position:absolute;top:calc(100% + 6px);right:0;min-width:230px;list-style:none;margin:0;padding:7px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 10px 28px -14px rgba(51,58,66,.45);
+  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s,transform .18s,visibility .18s;
+}
+.grp:hover > .sub,.grp:focus-within > .sub,.grp.open > .sub{opacity:1;visibility:visible;transform:none}
+.sub a{
+  display:flex;align-items:baseline;gap:10px;padding:9px 12px;font-size:13.5px;color:var(--ink-2);
+  text-decoration:none;border-radius:8px;transition:background .2s,color .2s;white-space:nowrap;line-height:1.7;
+}
+.sub a .n{font-family:var(--serif);font-size:11px;color:var(--ink-3);letter-spacing:.08em}
+.sub a:hover{background:var(--surface-2);color:var(--ink)}
+.sub a.active{color:var(--calm);background:var(--calm-bg);font-weight:500}
+.sub a.active .n{color:var(--calm)}
+
+.navbtn{
+  display:none;margin-left:auto;background:transparent;border:1px solid var(--line-2);
+  color:var(--ink-2);border-radius:8px;padding:7px 13px;font-size:13px;font-family:inherit;cursor:pointer;
+}
+@media (max-width:900px){
+  .navbtn{display:block}
+  .menu{
+    position:absolute;top:60px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);
+    flex-direction:column;gap:0;padding:10px 6px 14px;display:none;max-height:calc(100vh - 60px);overflow:auto;
+  }
+  .menu.open{display:flex}
+  .gbtn{
+    width:100%;pointer-events:none;font-size:11.5px;letter-spacing:.16em;color:var(--ink-3);
+    padding:14px 14px 6px;background:none;
+  }
+  .gbtn::after{display:none}
+  .grp.active > .gbtn{background:none;color:var(--ink-3);font-weight:400}
+  .sub{
+    position:static;opacity:1;visibility:visible;transform:none;min-width:0;
+    background:none;border:0;border-radius:0;box-shadow:none;padding:0 6px;
+  }
+  .sub a{padding:11px 14px;font-size:14.5px}
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{padding:clamp(52px,8vw,84px) 0 clamp(44px,6vw,64px);border-top:none}
+.hero .kicker{font-family:var(--serif);font-size:12.5px;letter-spacing:.22em;color:var(--ink-3);margin:0 0 20px}
+.hero h1{
+  font-family:var(--serif);font-weight:600;font-size:clamp(24px,4.6vw,36px);
+  line-height:1.75;margin:0 0 24px;letter-spacing:.01em;
+}
+.hero h1 .soft{background:linear-gradient(transparent 66%,var(--calm-bg) 66%);padding:0 3px}
+.hero p{color:var(--ink-2);font-size:15.5px;max-width:60ch}
+.hero-fig{margin:40px 0 0;padding:30px 24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+figcaption{font-size:13px;color:var(--ink-3);line-height:1.9;margin-top:16px;text-align:center}
+
+.gentle{
+  margin-top:36px;padding:22px 24px;border:1px solid var(--line);border-left:3px solid var(--calm);
+  border-radius:10px;background:var(--surface);
+}
+.gentle p{margin:0;font-size:14.4px;color:var(--ink-2);line-height:2}
+.gentle p + p{margin-top:10px}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(2,1fr)}
+@media (max-width:820px){.g3{grid-template-columns:1fr}}
+@media (max-width:660px){.g2,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 26px}
+.card > :last-child{margin-bottom:0}
+.card p{font-size:14.6px;color:var(--ink-2)}
+.label{
+  display:inline-block;font-size:11.5px;letter-spacing:.14em;font-weight:700;
+  padding:3px 11px;border-radius:999px;margin-bottom:14px;
+}
+.l-think{background:var(--think-bg);color:var(--think)}
+.l-feel{background:var(--feel-bg);color:var(--feel)}
+.l-act{background:var(--act-bg);color:var(--act)}
+.l-evi{background:var(--evi-bg);color:var(--evi)}
+.l-care{background:var(--care-bg);color:var(--care)}
+
+ul.list{list-style:none;margin:14px 0 0;padding:0}
+ul.list li{position:relative;padding-left:20px;margin-bottom:11px;font-size:14.6px;color:var(--ink-2);line-height:1.95}
+ul.list li:last-child{margin-bottom:0}
+ul.list li::before{
+  content:"";position:absolute;left:2px;top:13px;width:6px;height:6px;border-radius:50%;
+  background:var(--calm);opacity:.6;
+}
+ul.list.feel li::before{background:var(--feel)}
+ul.list.act li::before{background:var(--act)}
+ul.list.evi li::before{background:var(--evi)}
+ul.list.care li::before{background:var(--care)}
+
+/* ============================================================
+   Notes / callouts
+   ============================================================ */
+.note{
+  border-radius:var(--r);padding:22px 26px;font-size:14.8px;line-height:2;color:var(--ink-2);
+  background:var(--calm-bg);border:1px solid color-mix(in srgb,var(--calm) 26%,transparent);
+}
+.note > :last-child{margin-bottom:0}
+.note.care{background:var(--care-bg);border-color:color-mix(in srgb,var(--care) 26%,transparent)}
+.note.act{background:var(--act-bg);border-color:color-mix(in srgb,var(--act) 26%,transparent)}
+.note.evi{background:var(--evi-bg);border-color:color-mix(in srgb,var(--evi) 26%,transparent)}
+.note .ttl{display:block;font-weight:700;color:var(--ink);margin-bottom:6px;font-size:15px}
+
+blockquote{
+  margin:44px 0 0;padding:4px 0 4px 24px;border-left:2px solid var(--line-2);
+  font-family:var(--serif);font-size:clamp(15.5px,2.2vw,17.5px);line-height:2.1;color:var(--ink);
+}
+blockquote p{margin:0}
+blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--ink-3);margin-top:14px}
+
+/* ============================================================
+   Table
+   ============================================================ */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:580px;font-size:14.4px}
+th,td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.9}
+thead th{background:var(--surface-2);font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:700;color:var(--ink)}
+td{color:var(--ink-2)}
+
+/* ============================================================
+   Steps
+   ============================================================ */
+.steps{margin:0;padding:0;list-style:none}
+.steps li{position:relative;padding:0 0 26px 42px}
+.steps li::before{
+  content:attr(data-n);position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line-2);color:var(--ink-3);
+  font-size:12px;font-weight:700;display:grid;place-items:center;line-height:1;
+}
+.steps li::after{content:"";position:absolute;left:13px;top:30px;bottom:2px;width:1px;background:var(--line)}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.steps li:last-child::before{border-color:color-mix(in srgb,var(--act) 55%,transparent);color:var(--act)}
+.steps h4{margin-bottom:5px}
+.steps p{font-size:14.5px;color:var(--ink-2);margin:0 0 8px}
+.steps .ex{
+  font-size:13.6px;color:var(--ink-2);background:var(--surface-2);border-radius:9px;
+  padding:11px 15px;line-height:1.95;margin:0;
+}
+.steps .ex b{color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.08em;display:block;margin-bottom:2px}
+
+/* ============================================================
+   Do / Don't
+   ============================================================ */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:660px){.dd{grid-template-columns:1fr}}
+.dd .col{border:1px solid var(--line);border-radius:var(--r);padding:24px 26px;background:var(--surface)}
+.dd .col.a{border-top:3px solid color-mix(in srgb,var(--care) 60%,transparent)}
+.dd .col.b{border-top:3px solid color-mix(in srgb,var(--act) 60%,transparent)}
+.dd h4{margin-bottom:14px;font-size:14.5px;letter-spacing:.03em}
+.dd .col.a h4{color:var(--care)} .dd .col.b h4{color:var(--act)}
+.dd ul{list-style:none;margin:0;padding:0}
+.dd li{padding:12px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-2);line-height:1.95}
+.dd li:first-child{border-top:none;padding-top:0}
+.dd li:last-child{padding-bottom:0}
+
+/* ============================================================
+   Accordion
+   ============================================================ */
+details{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:10px;overflow:hidden}
+summary{
+  cursor:pointer;padding:17px 22px;font-size:15px;font-weight:500;list-style:none;
+  display:flex;align-items:center;gap:12px;color:var(--ink);line-height:1.8;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";margin-left:auto;flex:none;width:8px;height:8px;border-right:1.5px solid var(--ink-3);
+  border-bottom:1.5px solid var(--ink-3);transform:rotate(45deg) translateY(-2px);transition:transform .25s;
+}
+details[open] summary::after{transform:rotate(-135deg) translateY(-2px);border-color:var(--calm)}
+details .body{padding:0 22px 20px;font-size:14.5px;color:var(--ink-2);line-height:2}
+details .body > :last-child{margin-bottom:0}
+summary .qn{
+  flex:none;font-family:var(--serif);font-size:11.5px;letter-spacing:.1em;color:var(--ink-3);
+  border:1px solid var(--line-2);border-radius:999px;padding:2px 9px;line-height:1.7;
+}
+
+/* ============================================================
+   Chips
+   ============================================================ */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{
+  font-size:12.5px;padding:5px 13px;border-radius:999px;background:var(--surface-2);
+  border:1px solid var(--line);color:var(--ink-2);line-height:1.7;
+}
+
+/* ============================================================
+   TOC
+   ============================================================ */
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px 28px}
+.toc h2{font-family:var(--serif);font-size:15px;font-weight:600;margin:0 0 16px;letter-spacing:.06em;color:var(--ink)}
+.toc ol{list-style:none;counter-reset:t;margin:0;padding:0;columns:2;column-gap:32px}
+@media (max-width:600px){.toc ol{columns:1}}
+.toc li{counter-increment:t;break-inside:avoid;margin-bottom:9px}
+.toc a{text-decoration:none;color:var(--ink-2);font-size:14.3px;display:flex;gap:11px;align-items:baseline;transition:color .2s}
+.toc a::before{content:"0" counter(t);font-family:var(--serif);font-size:11.5px;color:var(--ink-3);letter-spacing:.1em}
+.toc a:hover{color:var(--calm)}
+
+/* ============================================================
+   Worksheet（書き込めるワークシート）
+   ============================================================ */
+.ws{border:1px solid var(--line-2);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.ws-hd{
+  padding:22px 26px;background:var(--surface-2);border-bottom:1px solid var(--line);
+}
+.ws-hd h4{margin:0 0 6px;font-family:var(--serif);font-size:16px}
+.ws-hd p{margin:0;font-size:13.2px;color:var(--ink-3);line-height:1.9}
+.ws-body{padding:26px}
+.wq{margin-bottom:26px}
+.wq:last-child{margin-bottom:0}
+.wq .q{
+  display:flex;gap:10px;align-items:baseline;font-size:14px;font-weight:700;color:var(--ink);
+  margin-bottom:4px;line-height:1.8;
+}
+.wq .q .s{
+  flex:none;font-family:var(--serif);font-size:11px;letter-spacing:.1em;color:var(--think);
+  background:var(--think-bg);border-radius:999px;padding:2px 10px;font-weight:600;
+}
+.wq .hint{font-size:13px;color:var(--ink-3);margin:0 0 9px;line-height:1.9}
+.ws textarea{
+  width:100%;min-height:88px;resize:vertical;font-family:inherit;font-size:14.4px;line-height:1.95;
+  color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;
+}
+.ws textarea:focus{outline:2px solid color-mix(in srgb,var(--calm) 55%,transparent);outline-offset:1px;border-color:var(--calm)}
+.rate{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.rate input[type=range]{flex:1;min-width:180px;accent-color:var(--think)}
+.rate output{
+  font-family:var(--serif);font-size:19px;color:var(--think);min-width:58px;text-align:center;
+  background:var(--think-bg);border-radius:9px;padding:3px 10px;line-height:1.7;
+}
+.diff{
+  margin-top:22px;padding:18px 22px;border-radius:12px;background:var(--act-bg);
+  border:1px solid color-mix(in srgb,var(--act) 26%,transparent);font-size:14.4px;color:var(--ink-2);line-height:2;
+}
+.diff b{color:var(--ink)}
+.ws-foot{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:18px 26px;border-top:1px solid var(--line);background:var(--surface-2);
+}
+.btn{
+  font-family:inherit;font-size:13.4px;padding:8px 16px;border-radius:9px;cursor:pointer;
+  background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);transition:color .2s,border-color .2s;
+}
+.btn:hover{color:var(--calm);border-color:var(--calm)}
+.ws-foot .msg{font-size:12.6px;color:var(--ink-3);margin-left:auto;line-height:1.8}
+
+/* ============================================================
+   Closing
+   ============================================================ */
+.closing{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(32px,6vw,52px);text-align:center}
+.closing h2{font-family:var(--serif);font-weight:600;font-size:clamp(19px,3vw,25px);line-height:1.85;margin:0 0 20px}
+.closing p{color:var(--ink-2);font-size:15px;max-width:56ch;margin-inline:auto}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--surface-2)}
+.f-top{display:flex;flex-wrap:wrap;gap:20px;align-items:baseline;justify-content:space-between;margin-bottom:28px}
+.f-top .logo{font-size:14.5px}
+.back{font-size:13.5px;color:var(--ink-2);text-decoration:none}
+.back:hover{color:var(--calm)}
+.disc{font-size:12.6px;color:var(--ink-3);line-height:2;border-top:1px solid var(--line);padding-top:22px;margin:0}
+
+/* ============================================================
+   Reveal（ごく控えめ）
+   ============================================================ */
+.js .rv{opacity:0;transition:opacity .9s ease}
+.js .rv.in{opacity:1}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transition:none}}
+
+#top-btn{
+  position:fixed;right:18px;bottom:18px;z-index:50;width:40px;height:40px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);cursor:pointer;
+  display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s;
+}
+#top-btn.show{opacity:1;pointer-events:auto}
+#top-btn:hover{color:var(--calm);border-color:var(--calm)}
+
+/* ============================================================
+   Print（ワークシートを紙に出す）
+   ============================================================ */
+@media print{
+  header,#top-btn,.ws-foot,.toc,.hero-fig{display:none}
+  body{background:#fff;color:#000;font-size:12px;line-height:1.8}
+  section{padding:14px 0;border:none}
+  .ws,.card,.note{break-inside:avoid}
+  .ws textarea{min-height:70px;background:#fff;border:1px solid #999}
+  .js .rv{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap-wide hd">
+    <a class="logo" href="#top">認知行動療法<span>｜</span>まとめノート</a>
+    <button class="navbtn" id="navbtn" aria-expanded="false" aria-controls="nv">メニュー</button>
+    <nav aria-label="ノートの目次"><ul class="menu" id="nv">
+      <li class="grp">
+        <button class="gbtn" type="button" aria-expanded="false">理解する</button>
+        <ul class="sub">
+          <li><a href="#what"><span class="n">01</span>CBTとは何か</a></li>
+          <li><a href="#core"><span class="n">02</span>土台にある4つの考え方</a></li>
+          <li><a href="#evidence"><span class="n">03</span>エビデンスと、その限界</a></li>
+        </ul>
+      </li>
+      <li class="grp">
+        <button class="gbtn" type="button" aria-expanded="false">実践する</button>
+        <ul class="sub">
+          <li><a href="#seven"><span class="n">04</span>7ステップ認知行動療法</a></li>
+          <li><a href="#tools"><span class="n">05</span>リアプレイザルと人間関係</a></li>
+        </ul>
+      </li>
+      <li class="grp">
+        <button class="gbtn" type="button" aria-expanded="false">日常に置く</button>
+        <ul class="sub">
+          <li><a href="#apply"><span class="n">06</span>日常の悩みへの応用</a></li>
+          <li><a href="#choose"><span class="n">07</span>自分に合うやり方を選ぶ</a></li>
+        </ul>
+      </li>
+    </ul></nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">COGNITIVE BEHAVIORAL THERAPY ／ 認知行動療法</p>
+    <h1>気分を変えようとする前に、<br><span class="soft">頭の中の言葉</span>を紙に出す。</h1>
+    <p>
+      認知行動療法（CBT）は、ストレスを感じたときに勝手に湧いてくる<strong>「自動思考」</strong>をつかまえ、
+      それが本当に事実なのかを検証することで、感情と行動の連鎖をゆるめていく心理療法です。
+      手順がマニュアル化されているため、専門家の助けがなくても、ひとりで紙とペンから始められるのが大きな特徴です。
+      このノートでは、仕組み・科学的な裏づけと限界・具体的な3つの技法・日常への応用までを順に整理しました。
+    </p>
+
+    <figure class="hero-fig">
+      <svg viewBox="0 0 460 250" role="img" aria-label="出来事から自動思考が生まれ、思考・感情・行動が円環になって影響し合う図。CBTは思考の環に働きかける。">
+        <defs>
+          <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0 1 L9 5 L0 9 z" fill="var(--ink-3)"/>
+          </marker>
+        </defs>
+        <!-- 出来事 -->
+        <g>
+          <rect x="8" y="26" width="86" height="34" rx="9" fill="var(--surface-2)" stroke="var(--line-2)"/>
+          <text x="51" y="48" font-size="12.5" fill="var(--ink-2)" text-anchor="middle" font-family="sans-serif">出来事</text>
+          <path d="M98 44 L182 44" stroke="var(--ink-3)" stroke-width="1.4" marker-end="url(#a1)" fill="none" opacity=".7"/>
+        </g>
+        <!-- 三角形の環 -->
+        <g fill="none" stroke-width="1.6" opacity=".85">
+          <path d="M258 68 Q322 108 316 152" stroke="var(--ink-3)" marker-end="url(#a1)"/>
+          <path d="M282 196 Q230 214 178 196" stroke="var(--ink-3)" marker-end="url(#a1)"/>
+          <path d="M144 152 Q138 108 202 68" stroke="var(--ink-3)" marker-end="url(#a1)"/>
+        </g>
+        <!-- 思考 -->
+        <g>
+          <rect x="186" y="26" width="88" height="38" rx="10" fill="var(--think-bg)" stroke="var(--think)" stroke-width="1.4"/>
+          <text x="230" y="50" font-size="13" fill="var(--think)" text-anchor="middle" font-family="sans-serif" font-weight="700">自動思考</text>
+        </g>
+        <!-- 感情 -->
+        <g>
+          <rect x="96" y="158" width="82" height="38" rx="10" fill="var(--feel-bg)" stroke="var(--feel)" stroke-width="1.4"/>
+          <text x="137" y="182" font-size="13" fill="var(--feel)" text-anchor="middle" font-family="sans-serif" font-weight="700">感情</text>
+        </g>
+        <!-- 行動 -->
+        <g>
+          <rect x="284" y="158" width="82" height="38" rx="10" fill="var(--act-bg)" stroke="var(--act)" stroke-width="1.4"/>
+          <text x="325" y="182" font-size="13" fill="var(--act)" text-anchor="middle" font-family="sans-serif" font-weight="700">行動</text>
+        </g>
+        <!-- 介入点 -->
+        <g>
+          <path d="M420 45 L286 45" stroke="var(--care)" stroke-width="1.4" marker-end="url(#a1)" fill="none" opacity=".8" stroke-dasharray="4 3"/>
+          <text x="424" y="42" font-size="11.5" fill="var(--care)" text-anchor="end" font-family="sans-serif">CBTが手を入れる場所</text>
+          <text x="424" y="62" font-size="10.5" fill="var(--ink-3)" text-anchor="end" font-family="sans-serif">（出来事そのものは変えない）</text>
+        </g>
+        <text x="230" y="232" font-size="11" fill="var(--ink-3)" text-anchor="middle" font-family="sans-serif">思考・感情・行動はぐるぐると互いを強め合う</text>
+      </svg>
+      <figcaption>出来事そのものは変えられない。変えられるのは、そこに反射的につけた解釈のほうだけ。</figcaption>
+    </figure>
+
+    <div class="gentle">
+      <p><strong>読む前に。</strong>このノートは、書籍や公開されている研究の紹介をもとに個人がまとめたものです。上から順に読む必要はありません。すぐ試したい方は<a href="#seven">04・7ステップ認知行動療法</a>から、効果のほどを先に知りたい方は<a href="#evidence">03・エビデンスと、その限界</a>から読んでください。</p>
+      <p>また、CBTは万人に効く万能薬ではありません。うつや不安が重い時期に無理に思考を検証しようとすると、かえって自分を責める材料になることがあります。しんどいときは手を止め、医療機関や公的な相談窓口を頼ってください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOC ===================== -->
+<section style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="toc rv">
+      <h2>もくじ</h2>
+      <ol>
+        <li><a href="#what">CBTとは何か</a></li>
+        <li><a href="#core">土台にある4つの考え方</a></li>
+        <li><a href="#evidence">エビデンスと、その限界</a></li>
+        <li><a href="#seven">7ステップ認知行動療法</a></li>
+        <li><a href="#tools">リアプレイザルと人間関係</a></li>
+        <li><a href="#apply">日常の悩みへの応用</a></li>
+        <li><a href="#choose">自分に合うやり方を選ぶ</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 01 WHAT ===================== -->
+<section id="what">
+  <div class="wrap">
+    <span class="sec-no rv">01</span>
+    <h2 class="sec rv">CBTとは、「思考の偏り」を点検する技術</h2>
+    <p class="lede rv">
+      認知行動療法（Cognitive Behavioral Therapy）は、ストレスを感じたときに無意識に湧き上がる<strong>自動思考</strong>――
+      その中に紛れ込んだ思考の偏りやエラー（<strong>認知の歪み</strong>）――を修正することで、感情と行動をコントロールしていく心理療法です。
+      感情を直接どうにかしようとするのではなく、感情の一つ手前にある<strong>解釈</strong>に手を入れるのが特徴です。
+    </p>
+
+    <div class="grid g3 rv" style="margin-bottom:28px">
+      <div class="card">
+        <span class="label l-think">思考</span>
+        <h4>自動思考</h4>
+        <p>「自分はいつもダメだ」「絶対に失敗する」。出来事の直後、意識する間もなく脳が出してくる極端な解釈。速いぶん、雑でもある。</p>
+      </div>
+      <div class="card">
+        <span class="label l-feel">感情</span>
+        <h4>湧き上がる気分</h4>
+        <p>思考の色に染まって、不安・怒り・落ち込みが生まれる。感情は思考の結果として遅れて出てくる。</p>
+      </div>
+      <div class="card">
+        <span class="label l-act">行動</span>
+        <h4>取ってしまう行動</h4>
+        <p>回避、先延ばし、ドカ食い、八つ当たり。その行動がまた次の出来事を呼び、思考をさらに補強してしまう。</p>
+      </div>
+    </div>
+
+    <p class="rv">
+      この3つは一方通行ではなく、輪になって互いを強め合います。だから輪のどこか一点――特に、比較的<strong>言葉にしやすい「思考」</strong>――に
+      介入すれば、感情も行動も一緒に動く。これがCBTの基本的な発想です。
+    </p>
+
+    <div class="note rv">
+      <span class="ttl">CBTの中心作業は、たった一つの問い</span>
+      <p class="mb0">湧いてきた考えに対して、一歩引いて<strong>「本当にそうか？」</strong>と検証すること。頭の中で反芻するのではなく、紙の上で、客観的な事実を並べて確かめること。以降のテクニックは、すべてこの一つの作業を手順化したものです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 02 CORE ===================== -->
+<section id="core">
+  <div class="wrap">
+    <span class="sec-no rv">02</span>
+    <h2 class="sec rv">土台にある4つの考え方</h2>
+    <p class="lede rv">
+      具体的な手順に入る前に、CBTを支える心理学的なアプローチを4つ押さえておくと、
+      なぜワークシートが「ただ書くだけ」に見えて効くのかが腑に落ちます。
+    </p>
+
+    <h3 class="sub rv">① 自動思考のキャッチと客観化</h3>
+    <p class="rv">
+      ストレスに直面したとき、脳は瞬時に極端な解釈を働かせます。これは省エネのための仕組みであって、正確さのための仕組みではありません。
+      CBTでは、その解釈を「自分そのもの」と同一視せず、<strong>検証にかけられる一つの仮説</strong>として扱います。
+      「私はダメだ」ではなく「私はいま『私はダメだ』と考えている」と置き直すこと。この一段のズレが、客観化のはじまりです。
+    </p>
+
+    <h3 class="sub rv">② 外在化 ── 脳の外に出す</h3>
+    <p class="rv">
+      モヤモヤした思考や感情を、頭の中だけで処理せず<strong>紙に書き出して脳の外に出す</strong>作業です。
+      頭の中にある限り、思考は形を変えながら何度でも戻ってきますが、文字として固定されたとたん、
+      それは「観察できる対象」に変わります。プレッシャーから距離を取り、冷静に現状を把握するための、もっとも安価な道具が紙とペンです。
+    </p>
+    <div class="note evi rv">
+      <p class="mb0">このノートに書き込み欄（ワークシート）を用意しているのも同じ理由です。読むだけでは外在化は起きません。<strong>書き出したときに初めて効き始める</strong>のがCBTの実践です。</p>
+    </div>
+
+    <h3 class="sub rv">③ リフレーミング ── 枠を掛け替える</h3>
+    <p class="rv">
+      記憶や出来事そのものは、本来は無色透明です。それが「良い思い出」にも「嫌な出来事」にもなるのは、
+      そのとき貼りつけた感情と解釈による色づけの結果にすぎません。
+      この<strong>捉え方の枠組み（フレーム）を掛け替える技術</strong>がリフレーミングです。
+      事実をねじ曲げて無理にポジティブに言い換えることではなく、同じ事実の別の面に光を当て直すことを指します。
+    </p>
+
+    <h3 class="sub rv">④ ホールネス ── 感情のダークサイドも認める</h3>
+    <p class="rv">
+      ネガティブな感情を無理に押し殺そうとすると、かえってその感情に脳が支配される<strong>リバウンド現象</strong>が起きます。
+      「考えないようにしよう」とするほど、考えてしまう、あれです。
+    </p>
+    <p class="rv">
+      そこで現代的なCBTが目指すのが<strong>ホールネス（全体性）</strong>です。
+      怒りも悲しみも、抑圧すべき異物ではなく、それぞれ役割（機能）を持ったツールとして認め、客観的に受け入れる。
+      怒りは境界線が侵されたことを、悲しみは大切なものを失ったことを教えてくれる信号です。
+      消そうとするのではなく、何を知らせに来たのかを聞く。それがホールネスの姿勢です。
+    </p>
+
+    <div class="dd rv" style="margin-top:30px">
+      <div class="col a">
+        <h4>× 効きにくい向き合い方</h4>
+        <ul>
+          <li>「こんなことで落ち込む自分が悪い」と感情そのものを裁く</li>
+          <li>頭の中だけでぐるぐる考え、結論の出ない反芻を続ける</li>
+          <li>事実を無視して「大丈夫、ポジティブに行こう」と上書きする</li>
+          <li>ネガティブ感情をなかったことにして押し込める</li>
+        </ul>
+      </div>
+      <div class="col b">
+        <h4>○ CBTが取る向き合い方</h4>
+        <ul>
+          <li>感情は認めたうえで、その手前の「解釈」だけを検証する</li>
+          <li>紙に書き出し、思考を観察できる対象として外に出す</li>
+          <li>反対の主張と、それを支える客観的な根拠を並べてみる</li>
+          <li>怒りや悲しみを、情報を運んできた道具として扱う</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 EVIDENCE ===================== -->
+<section id="evidence">
+  <div class="wrap">
+    <span class="sec-no rv">03</span>
+    <h2 class="sec rv">エビデンスと、その限界</h2>
+    <p class="lede rv">
+      CBTはメンタル改善の「ゴールドスタンダード」と呼ばれてきました。
+      ただし近年の大規模なメタ分析は、その実力とあわせて<strong>都合の悪い事実</strong>も明らかにしています。
+      使う前に、効く範囲と効かない範囲の両方を知っておくほうが、結果的に失望せずに済みます。
+    </p>
+
+    <h3 class="sub rv">① 効果が長く続く</h3>
+    <p class="rv">
+      CBTの強みは、治療やトレーニングの期間が終わったあとも効果が持続しやすい点にあります。
+      薬のように、やめた瞬間に元へ戻るタイプの介入ではありません。
+    </p>
+
+    <div class="grid g2 rv" style="margin-bottom:24px">
+      <div class="card">
+        <span class="label l-evi">不安関連障害</span>
+        <h4>治療終了後も1年間、効果が維持</h4>
+        <p>4,118人を対象にしたメタ分析では、治療が終わったあとも1年間は不安症状の軽減効果が保たれていました。とくにPTSD（心的外傷後ストレス障害）では、12ヶ月後も高い効果を保ち続けることが確認されています。</p>
+      </div>
+      <div class="card">
+        <span class="label l-evi">不眠症</span>
+        <h4>6週間の実践が、10年後まで効く</h4>
+        <p>不眠症患者を対象にした6週間のCBTトレーニング（<strong>本による独学</strong>、またはセラピストのガイド付き）の追跡調査では、終了後に約66％の参加者が改善。その効果は1年後、さらには10年後まで維持されていました。</p>
+      </div>
+    </div>
+
+    <figure class="card rv" style="margin-bottom:8px">
+      <svg viewBox="0 0 460 152" role="img" aria-label="不眠症へのCBTの効果を示す時間軸。6週間のトレーニング後、約66%が改善し、1年後・10年後まで効果が維持される。">
+        <line x1="30" y1="86" x2="430" y2="86" stroke="var(--line-2)" stroke-width="1.4"/>
+        <g font-family="sans-serif" text-anchor="middle">
+          <g>
+            <circle cx="60" cy="86" r="5" fill="var(--surface)" stroke="var(--evi)" stroke-width="1.8"/>
+            <text x="60" y="112" font-size="11" fill="var(--ink-2)">開始</text>
+            <text x="60" y="128" font-size="10" fill="var(--ink-3)">6週間の実践</text>
+          </g>
+          <g>
+            <circle cx="180" cy="86" r="7" fill="var(--evi)"/>
+            <text x="180" y="66" font-size="15" fill="var(--evi)" font-weight="700">約66%</text>
+            <text x="180" y="46" font-size="10.5" fill="var(--ink-3)">が改善</text>
+            <text x="180" y="112" font-size="11" fill="var(--ink-2)">終了直後</text>
+          </g>
+          <g>
+            <circle cx="300" cy="86" r="5" fill="var(--surface)" stroke="var(--evi)" stroke-width="1.8"/>
+            <text x="300" y="66" font-size="11.5" fill="var(--ink-2)">効果 維持</text>
+            <text x="300" y="112" font-size="11" fill="var(--ink-2)">1年後</text>
+          </g>
+          <g>
+            <circle cx="410" cy="86" r="5" fill="var(--surface)" stroke="var(--evi)" stroke-width="1.8"/>
+            <text x="410" y="66" font-size="11.5" fill="var(--ink-2)">効果 維持</text>
+            <text x="410" y="112" font-size="11" fill="var(--ink-2)">10年後</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>不眠症へのCBT。6週間の取り組みが、10年単位の変化として残る例。</figcaption>
+    </figure>
+
+    <h3 class="sub rv">② 他の心理療法より、際立って優れているわけではない</h3>
+    <p class="rv">
+      過去最大クラスのメタ分析（<strong>52,702人・409の試験</strong>が対象）によると、うつ病治療においてCBTは確実に効くものの、
+      他の精神療法――たとえば約300件の臨床試験がある力動的精神療法など――と比べて<strong>際立って優れているわけではない</strong>という結果が出ています。
+    </p>
+    <p class="rv">
+      それでも専門家がCBTを強く推奨するのは、効果の大きさではなく<strong>使い勝手</strong>の問題です。
+      治療手順がマニュアル化されているため、科学的な実験がしやすく、データが集まりやすい。
+      そして何より、<strong>個人でも独学で取り組みやすい</strong>。この実践上のメリットが、CBTを推奨リストの上位に置いています。
+    </p>
+
+    <h3 class="sub rv">③ 「30年で効果が半減した」という報告</h3>
+    <p class="rv">
+      1997〜2014年の70件の論文を解析したメタ解析では、うつ病に対するCBTの治療効果が<strong>年々低下している（30年で半減した）</strong>という、
+      なかなか衝撃的なデータも報告されています。研究者が推測する原因は、大きく2つです。
+    </p>
+
+    <ol class="steps rv" style="margin:22px 0 26px">
+      <li data-n="1">
+        <h4>普及によって、質の低い治療者が増えた</h4>
+        <p>CBTが急速に広まった結果、十分な訓練を受けていない実施者が増え、平均的な治療の質が下がった可能性。</p>
+      </li>
+      <li data-n="2">
+        <h4>プラセボ（期待）のゲタが外れた</h4>
+        <p>初期の極めて高い成果は、「ゴールドスタンダード」ともてはやされたことによるプラセボ効果――いわば<strong>ゲタを履いていた状態</strong>だった可能性。科学的な実証が進んで「他の療法と大差ない」という事実がインターネット等で広まった結果、患者側の期待や信頼が薄れ、その分だけ効果が目減りした、という説明です。</p>
+      </li>
+    </ol>
+
+    <figure class="card rv">
+      <svg viewBox="0 0 460 160" role="img" aria-label="うつ病に対するCBTの効果量が、年を追うごとに右下がりに低下していく概念図。">
+        <g stroke="var(--line)" stroke-width="1">
+          <line x1="52" y1="24" x2="440" y2="24"/>
+          <line x1="52" y1="66" x2="440" y2="66"/>
+          <line x1="52" y1="108" x2="440" y2="108"/>
+        </g>
+        <line x1="52" y1="24" x2="52" y2="124" stroke="var(--line-2)" stroke-width="1.4"/>
+        <line x1="52" y1="124" x2="440" y2="124" stroke="var(--line-2)" stroke-width="1.4"/>
+        <path d="M70 36 L160 52 L250 74 L340 92 L424 104" fill="none" stroke="var(--care)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="var(--care)">
+          <circle cx="70" cy="36" r="4"/><circle cx="160" cy="52" r="4"/><circle cx="250" cy="74" r="4"/>
+          <circle cx="340" cy="92" r="4"/><circle cx="424" cy="104" r="4"/>
+        </g>
+        <g font-family="sans-serif" font-size="10.5" fill="var(--ink-3)">
+          <text x="44" y="28" text-anchor="end">高</text>
+          <text x="44" y="112" text-anchor="end">低</text>
+          <text x="70" y="142" text-anchor="middle">1980年代</text>
+          <text x="250" y="142" text-anchor="middle">2000年前後</text>
+          <text x="424" y="142" text-anchor="middle">2014年</text>
+          <text x="238" y="14" text-anchor="middle" font-size="11" fill="var(--ink-2)">うつ病に対するCBTの効果量（概念図）</text>
+        </g>
+      </svg>
+      <figcaption>実測値のグラフではなく、報告された傾向を表した概念図です。「効かない」ではなく「初期に見えていたほど劇的ではない」という意味に読んでください。</figcaption>
+    </figure>
+
+    <div class="note care rv" style="margin-top:26px">
+      <span class="ttl">この事実を、どう受け取るか</span>
+      <p class="mb0">効果が半減したという報告は、CBTを捨てる理由にはなりません。むしろ<strong>「万能薬という物語から降りて、道具として淡々と使う」</strong>ための情報です。効果の一部が期待によって支えられていたのなら、逆に言えば、自分に合うと感じられる方法を選ぶこと自体にも意味がある、ということでもあります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 SEVEN STEPS ===================== -->
+<section id="seven">
+  <div class="wrap">
+    <span class="sec-no rv">04</span>
+    <h2 class="sec rv">実践①　7ステップ認知行動療法</h2>
+    <p class="lede rv">
+      アンドリュー・バーンスタイン博士が開発し、Googleでも採用されたというシンプルなフレームワークです。
+      仕事のトラブルや日常のへこみに対する<strong>応急処置</strong>として機能します。
+      鍵になるのは、自分が握りしめている<strong>「〜すべき」</strong>を外に出し、それを現実の側から書き換える手順です。
+    </p>
+
+    <ol class="steps rv" style="margin-bottom:34px">
+      <li data-n="1">
+        <h4>「べき」の書き出し</h4>
+        <p>自分に起きたトラブルと、そのとき抱いた「〜すべき」「〜すべきではない」という不満を、そのまま客観的に書きます。</p>
+        <p class="ex"><b>例</b>ミスしたのは私だが、上司はあそこまで怒鳴るべきではない。</p>
+      </li>
+      <li data-n="2">
+        <h4>思考の採点</h4>
+        <p>STEP1で書いた考えを、自分がどれくらい真実だと信じているか。主観で10点満点の評価をつけます。</p>
+      </li>
+      <li data-n="3">
+        <h4>感情と行動の把握（3a・3b）</h4>
+        <p>そのストレスを感じたときに<strong>わきあがった感情</strong>（3a）と、実際に<strong>取ってしまったネガティブな行動</strong>（3b）を書き出します。</p>
+        <p class="ex"><b>例</b>感情＝屈辱、怒り、情けなさ／行動＝一日中口をきかなかった、帰りに酒を買った。</p>
+      </li>
+      <li data-n="4">
+        <h4>リライト</h4>
+        <p>STEP1の主張を、「現実」に基づいて<strong>逆の意味に書き換え</strong>ます。願望ではなく、実際に起きたことの側に立って書くのがコツです。</p>
+        <p class="ex"><b>例</b>現実には、その時点では上司が怒鳴るのが当然だった。</p>
+      </li>
+      <li data-n="5">
+        <h4>エビデンスの提示</h4>
+        <p>STEP4の逆説が「正しい」と言える客観的な理由を、思いつく限り書き出します。ここがこのワークの本体です。</p>
+        <p class="ex"><b>例</b>現実には、その時点では上司が怒鳴るのが当然だった。なぜなら彼は「ミスした部下は怒鳴って指導するものだ」という固定観念を持っているからだ。／なぜなら彼自身も上から詰められていたからだ。</p>
+      </li>
+      <li data-n="6">
+        <h4>感情と行動の再把握（6a・6b）</h4>
+        <p>客観的なエビデンスを踏まえたうえで、もう一度<strong>いまの感情</strong>（6a）と、<strong>今度はどう行動したくなったか</strong>（6b）を書き出します。</p>
+      </li>
+      <li data-n="7">
+        <h4>再読と再採点</h4>
+        <p>最後にSTEP1の文章を読み直し、その真実味をもう一度10点満点で採点します。客観化のプロセスを経ることで自然と点数が下がり、ネガティブ感情がやわらぎます。</p>
+      </li>
+    </ol>
+
+    <div class="note rv" style="margin-bottom:30px">
+      <span class="ttl">STEP4でつまずく人へ</span>
+      <p class="mb0">「上司が怒鳴るのが当然だった」と書くのは、相手を許すことでも、自分が悪いと認めることでもありません。<strong>「その条件がそろえば、そうなるのが現実だった」という因果の確認</strong>です。理不尽さへの評価は、いったん脇に置いたままで構いません。</p>
+    </div>
+
+    <!-- ========== WORKSHEET ========== -->
+    <div class="ws rv" id="worksheet">
+      <div class="ws-hd">
+        <h4>書き込めるワークシート ── 7ステップ</h4>
+        <p>入力した内容は、この端末のブラウザ内（localStorage）にだけ保存されます。どこにも送信されません。「印刷」で紙のワークシートとしても使えます。</p>
+      </div>
+      <div class="ws-body">
+        <div class="wq">
+          <p class="q"><span class="s">STEP 1</span>「べき」を書き出す</p>
+          <p class="hint">起きたトラブルと、「〜すべき／〜すべきではない」という不満をそのまま。</p>
+          <textarea id="w1" placeholder="例：ミスしたのは私だが、上司はあそこまで怒鳴るべきではない。"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 2</span>いま、それをどれくらい真実だと思うか</p>
+          <div class="rate">
+            <input type="range" id="w2" min="0" max="10" step="1" value="8" aria-label="STEP1の考えをどれくらい真実だと信じているか（0〜10）">
+            <output for="w2" id="w2o">8 / 10</output>
+          </div>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 3a</span>わきあがった感情</p>
+          <textarea id="w3a" placeholder="例：屈辱、怒り、情けなさ"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 3b</span>取ってしまった行動</p>
+          <textarea id="w3b" placeholder="例：一日中口をきかなかった／帰りに酒を買った"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 4</span>現実に基づいて、逆の意味に書き換える</p>
+          <p class="hint">「現実には、その時点では〜だった」の形で書くと書きやすい。</p>
+          <textarea id="w4" placeholder="例：現実には、その時点では上司が怒鳴るのが当然だった。"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 5</span>そう言える客観的な理由（エビデンス）</p>
+          <p class="hint">「なぜなら〜」を、思いつく限り。数が多いほど効きます。</p>
+          <textarea id="w5" style="min-height:130px" placeholder="なぜなら…&#10;なぜなら…&#10;なぜなら…"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 6a</span>いま、どんな感情か</p>
+          <textarea id="w6a" placeholder="書き出したあとの、いまの気持ち"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 6b</span>これから、どう行動したいか</p>
+          <textarea id="w6b" placeholder="次に取りたい行動"></textarea>
+        </div>
+
+        <div class="wq">
+          <p class="q"><span class="s">STEP 7</span>もう一度STEP1を読み、採点し直す</p>
+          <div class="rate">
+            <input type="range" id="w7" min="0" max="10" step="1" value="8" aria-label="ワーク後に、STEP1の考えをどれくらい真実だと思うか（0〜10）">
+            <output for="w7" id="w7o">8 / 10</output>
+          </div>
+          <p class="diff" id="wdiff" aria-live="polite">STEP2：<b>8</b> → STEP7：<b>8</b>（変化なし）</p>
+        </div>
+      </div>
+      <div class="ws-foot">
+        <button class="btn" type="button" id="ws-print">印刷する</button>
+        <button class="btn" type="button" id="ws-clear">内容を消す</button>
+        <span class="msg" id="ws-msg">入力は自動で保存されます</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 TOOLS ===================== -->
+<section id="tools">
+  <div class="wrap">
+    <span class="sec-no rv">05</span>
+    <h2 class="sec rv">実践②　リアプレイザルと、人間関係の棚卸し</h2>
+    <p class="lede rv">
+      7ステップがじっくり書く道具だとすれば、こちらは<strong>その場で効かせる道具</strong>と、
+      <strong>土台を整える道具</strong>です。前者はトラブル発生の直後に、後者は落ち着いているときに使います。
+    </p>
+
+    <h3 class="sub rv">ツールB　速攻の感情コントロール「リアプレイザル15問」</h3>
+    <p class="rv">
+      ジェイソン・M・サターフィールド博士が考案した、トラブルが起きたときに自分へ問いかけることで感情をすばやく落ち着かせる応急処置ツールです。
+      全部に答える必要はなく、<strong>刺さる質問を1〜2個</strong>選んで答えるだけでも効きます。代表的な問いは次のようなものです。
+    </p>
+
+    <div class="rv">
+      <details>
+        <summary><span class="qn">Q1</span>この問題によって、長期的に物質的・金銭的な被害はあるだろうか？</summary>
+        <div class="body"><p class="mb0">ないのなら、そこまで心配する必要はあるでしょうか。多くのストレスは「面目」や「気分」の問題で、実害としてはゼロに近いことがあります。まず被害の実額を確認する問いです。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">Q2</span>この問題について、まだ自分が気づいていない良い面、あるいは笑える面はないだろうか？</summary>
+        <div class="body"><p class="mb0">リフレーミングを直接起動させる問い。無理に良い話にしなくても、「あとで人に話したら笑い話になりそうな部分」を探すだけで、視点が一段上がります。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">Q3</span>もし同じことが他人に起きていたら、自分は相手に何と声をかけてあげるだろうか？</summary>
+        <div class="body"><p class="mb0">人は自分にだけ極端に厳しい基準を使いがちです。友人に向ける言葉を自分に向け直すことで、その二重基準が浮き彫りになります。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">Q4</span>未来に同じようなことを避けるために、この出来事から学べることは何か？</summary>
+        <div class="body"><p class="mb0">出来事を「被害」から「データ」に置き換える問い。反省と自責は別物で、ここで求めているのは前者だけです。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">Q5</span>（他人に嫌なことをされた場合）相手が「嫌な奴」だからではない、と解釈できないか？</summary>
+        <div class="body"><p class="mb0">「単に必要な情報を知らなかっただけ」「身内に不幸があったのかもしれない」など、好意的に解釈できる余地を探します。相手を許すためではなく、<strong>自分が抱えるコストを下げるため</strong>の問いです。</p></div>
+      </details>
+    </div>
+    <p class="rv" style="margin-top:16px;font-size:13.4px;color:var(--ink-3)">※ 全15問のうち、代表的なものを挙げています。</p>
+
+    <h3 class="sub rv">ツールC　人間関係を味方にする「ソーシャルサポート分析」</h3>
+    <p class="rv">
+      自分を取り巻く人間関係を4つのリソースに分類し、いま抱えている課題の解決にどう役立てられるかを客観的に分析する技法です。
+      興味深いことに、<strong>分類を書き出すだけでも孤独感がやわらぎ、メンタルが改善する</strong>ことが知られています。
+      「誰もいない」と感じているときほど、実際に書き出すと空欄ではないことに気づきます。
+    </p>
+
+    <div class="grid g4 rv" style="margin-bottom:24px">
+      <div class="card">
+        <span class="label l-feel">01</span>
+        <h4>感情サポート</h4>
+        <p>悩みを聞いてくれる人。ありのままの自分を受け入れてくれる人。解決策をくれなくてもいい相手。</p>
+      </div>
+      <div class="card">
+        <span class="label l-think">02</span>
+        <h4>情報サポート</h4>
+        <p>目標達成や問題解決に役立つアドバイス・データを提供してくれる人。詳しい人、経験者。</p>
+      </div>
+      <div class="card">
+        <span class="label l-evi">03</span>
+        <h4>手段サポート</h4>
+        <p>金銭的な支援や、実際の作業を手伝ってくれる人。具体的な援助をくれる相手。</p>
+      </div>
+      <div class="card">
+        <span class="label l-act">04</span>
+        <h4>所属サポート</h4>
+        <p>一緒に遊んだり趣味を共有したりして、社会的な帰属感を与えてくれるグループ。</p>
+      </div>
+    </div>
+
+    <p class="rv">
+      書き出したら終わりにせず、この4つを<strong>「いま抱えている課題」に当てはめ</strong>、
+      翌週から誰にどうアプローチするかまで、具体的なアクションプランに落とし込みます。
+    </p>
+
+    <div class="tw rv" style="margin-top:20px">
+      <table>
+        <thead>
+          <tr><th style="width:23%">サポートの種類</th><th style="width:27%">思い当たる人・場</th><th>来週、実際にすること</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>感情サポート</td><td>例：大学時代の友人A</td><td>例：週末に電話して、最近しんどい件をひと通り話す</td></tr>
+          <tr><td>情報サポート</td><td>例：同業の先輩B</td><td>例：転職で迷っている点を3つに絞って質問する</td></tr>
+          <tr><td>手段サポート</td><td>例：家族</td><td>例：来週の通院日、送り迎えを頼む</td></tr>
+          <tr><td>所属サポート</td><td>例：月1の読書会</td><td>例：次回の日程を確認して参加登録する</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rv" style="margin-top:14px;font-size:13.4px;color:var(--ink-3)">※ この表は書き方の例です。ノートに同じ3列を引いて、自分の名前で埋めてみてください。</p>
+  </div>
+</section>
+
+<!-- ===================== 06 APPLY ===================== -->
+<section id="apply">
+  <div class="wrap">
+    <span class="sec-no rv">06</span>
+    <h2 class="sec rv">日常の悩み・身体トラブルへの応用</h2>
+    <p class="lede rv">
+      CBTの「手順化・マニュアル化できる」という性質は、メンタル疾患の治療にとどまりません。
+      ダイエット、慢性の痛み、片付け――一見すると心理療法と関係がなさそうな領域にも、そのまま持ち込めます。
+      共通しているのは、どれも<strong>思考が行動を縛り、その行動がまた思考を補強している</strong>という構造です。
+    </p>
+
+    <h3 class="sub rv">① ダイエットの「プレッシャー」を解きほぐす</h3>
+    <p class="rv">
+      ダイエットが失敗する主な理由は、意志の弱さではなく<strong>マイナスループ</strong>です。
+      「痩せなければ！」という強いプレッシャーがストレスを生み、そのストレスを解消するためにドカ食いやSNSへの逃避といった、
+      目的と真逆の行動に走ってしまう。プレッシャーが強いほどループは速く回ります。
+    </p>
+    <div class="grid g2 rv">
+      <div class="card">
+        <span class="label l-think">CBTの応用</span>
+        <p class="mb0">7ステップを使い、「私は痩せなければならない」という思考を、<strong>「現実には、現時点では私は痩せないはずだ」</strong>とリライトします。エビデンスは単純で、「消費カロリー以上に食べており、運動をしていないから」。</p>
+      </div>
+      <div class="card">
+        <span class="label l-act">起きること</span>
+        <p class="mb0">痩せない理由が、他人から見てもわかる<strong>客観的な事実</strong>として頭の外に出ます（外在化）。すると無駄な焦りと自責が抜け、「では消費と摂取をどうするか」という、正しい減量行動の話に戻ってこられます。</p>
+      </div>
+    </div>
+
+    <h3 class="sub rv">② 脳の変調による「慢性腰痛」を治す</h3>
+    <p class="rv">
+      現代の医学では、慢性的な腰痛の多くは姿勢の悪さや骨のダメージではなく、
+      <strong>脳の変調（メンタルの恐怖）</strong>が原因であることが判明しています。
+      痛みを恐れて腰をかばう → 動かさないので運動不足になる → 脳が痛みに敏感になる → さらに恐れる、という悪循環です。
+    </p>
+    <ul class="list rv" style="margin-bottom:20px">
+      <li><strong>「そう簡単に腰は傷まない」という事実を頭に叩き込む。</strong>ここが認知の修正にあたります。</li>
+      <li><strong>あえて1日15分のウォーキングなどで腰に負荷をかける。</strong>「動かしても痛まない」という体験で、恐怖の認知エラーを実地に正します（行動実験）。</li>
+      <li><strong>日々の痛みを10段階で記録し、その日のストレスイベントと並べる。</strong>痛みが物理的な損傷ではなく心理状態と連動していることを、自分のデータで確認します。</li>
+    </ul>
+    <div class="note act rv">
+      <span class="ttl">マインドフルネスとの比較</span>
+      <p class="mb0">瞑想とヨガを組み合わせたマインドフルネス療法（MBSR）と比べても、CBTには同等以上の腰痛改善効果があるという研究結果が出ています。とくに<strong>不安や心配性の解消</strong>においては、CBTのほうが高い効果を発揮しました。</p>
+    </div>
+    <p class="rv" style="margin-top:20px;font-size:13.6px;color:var(--ink-3)">
+      ※ ただし、しびれ・発熱・排尿の異常・原因のはっきりした外傷などを伴う痛みは別です。まず整形外科などで器質的な問題がないことを確認してから取り組んでください。
+    </p>
+
+    <h3 class="sub rv">③ CBTを応用した「断捨離（片付け）」</h3>
+    <p class="rv">
+      セス・ギリガン博士のCBT研究にもとづき、片付けを阻む自動思考（「後で必要になったらどうしよう」など）や、
+      捨てるときの精神的な苦痛を乗り越える方法が開発されています。
+    </p>
+
+    <ol class="steps rv">
+      <li data-n="1">
+        <h4>まず捨てる（脳の負荷を減らす）</h4>
+        <p>脳は物が多いとパニックになり、整理整頓そのものを嫌がります。並べ替えから始めず、最初に徹底的に「捨てる」を済ませてから整理に進みます。</p>
+      </li>
+      <li data-n="2">
+        <h4>自己信頼を育てる</h4>
+        <p>「いつか必要になるかも」という不安の正体は、物への執着ではなく、<strong>未来のトラブルに対処する自分への信頼の欠如</strong>です。「捨てても、必要になったら代用品を見つけるなどして自分なら対処できる」という自信（セルフコンパッション）を、片付けを通じて育てます。</p>
+      </li>
+      <li data-n="3">
+        <h4>アクセプタンスを実践する</h4>
+        <p>捨てるときのモヤモヤ――思い出への執着、完璧に片付かないことへの抵抗――を、消すべき不具合ではなく<strong>「心を鍛える筋トレ」</strong>として受け入れます。不快感は、やめる合図ではなく効いている合図です。</p>
+      </li>
+      <li data-n="4">
+        <h4>タスクを分解して習慣にする</h4>
+        <p>「部屋全体の掃除」という高負荷なタスクは、脳が着手を拒みます。<strong>20分以内で終わるサブタスク</strong>（例：クローゼットの靴を並べ替える）に分解し、毎日15分の片付けを1日3回といった形で、一貫して続けられる単位にします。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== 07 CHOOSE ===================== -->
+<section id="choose">
+  <div class="wrap">
+    <span class="sec-no rv">07</span>
+    <h2 class="sec rv">自分に合うやり方を選ぶ</h2>
+    <p class="lede rv">
+      認知行動療法は非常に強力で汎用性の高いツールセットですが、万人に完璧な万能薬というわけではありません。
+      向き不向きがあり、それは性格の問題であって、優劣の問題ではありません。
+    </p>
+
+    <div class="dd rv" style="margin-bottom:30px">
+      <div class="col b">
+        <h4>CBTが効きやすいタイプ</h4>
+        <ul>
+          <li>物事を論理的に整理していくのが好き</li>
+          <li>思考の歪みをビシバシ正していきたい、理屈っぽいタイプ</li>
+          <li>書く・記録する・数字をつけることが苦にならない</li>
+          <li>手順が決まっているほうが動きやすい</li>
+        </ul>
+      </div>
+      <div class="col a">
+        <h4>別のアプローチが合うかもしれないタイプ</h4>
+        <ul>
+          <li>より直感的で、あるがままを受け入れるスタイルが好み</li>
+          <li>言語化しようとすると、かえってしんどくなる</li>
+          <li>いまは分析より、まず休息と安全の確保が必要な状態</li>
+          <li>→ マインドフルネスなどが良い選択肢になります</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note rv">
+      <span class="ttl">はじめの一歩の選び方</span>
+      <p>いきなり全部をやろうとせず、いまの状態に近いところから始めてください。</p>
+      <ul class="list mb0">
+        <li><strong>いま、腹が立っている・落ち込んでいる</strong> → <a href="#tools">リアプレイザル</a>を1問だけ自分に問う</li>
+        <li><strong>特定の出来事が頭から離れない</strong> → <a href="#worksheet">7ステップのワークシート</a>を1枚埋める</li>
+        <li><strong>漠然と孤独で、しんどい</strong> → <a href="#tools">ソーシャルサポート分析</a>の4分類を書き出す</li>
+      </ul>
+    </div>
+
+    <blockquote class="rv">
+      <p>ご自身のライフスタイルや性格、その時々の悩みの深さに合わせて、まずは使いやすいテクニックから日常に取り入れてみてください。</p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="closing rv">
+      <h2>変えられるのは、<br>出来事ではなく解釈のほうだけ。</h2>
+      <p>
+        それは無力だという話ではありません。解釈は、こちら側にある。
+        紙とペンさえあれば、今日から手を入れられる場所が、たしかに一つある――というだけの話です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <span class="logo">認知行動療法<span>｜</span>まとめノート</span>
+      <a class="back" href="../">← m-note トップ</a>
+    </div>
+    <p class="disc">
+      専門家ではない個人が、書籍や公開資料をもとにまとめた個人的なまとめノートです。内容の正確性を保証するものではありません。
+      医学的な診断・治療・助言に代わるものではないため、気になる症状や困りごとがある場合は、必ず医療機関または公的な相談窓口にご相談ください。
+      掲載している研究データは出典元の記述にもとづく要約であり、数値や解釈は原典と異なる場合があります。
+      うつ・不安の症状が重い時期に、ひとりで思考の検証を行うことは推奨されません。
+      ワークシートに入力した内容はご利用の端末のブラウザ内にのみ保存され、外部には送信されません。
+    </p>
+  </div>
+</footer>
+
+<button id="top-btn" aria-label="ページの先頭へ戻る">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+  var btn=document.getElementById('navbtn'), nv=document.getElementById('nv');
+  var grps=[].slice.call(nv.querySelectorAll('.grp'));
+
+  function closeGroups(except){
+    grps.forEach(function(g){
+      if(g!==except){g.classList.remove('open');g.querySelector('.gbtn').setAttribute('aria-expanded','false');}
+    });
+  }
+  /* デスクトップはホバーでも開くが、キーボード・タッチ用にクリックでも開閉する */
+  grps.forEach(function(g){
+    g.querySelector('.gbtn').addEventListener('click',function(){
+      var o=g.classList.toggle('open');
+      this.setAttribute('aria-expanded',o?'true':'false');
+      if(o) closeGroups(g);
+    });
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.grp')) closeGroups(null); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeGroups(null); });
+
+  btn.addEventListener('click',function(){
+    var o=nv.classList.toggle('open');
+    btn.setAttribute('aria-expanded',o?'true':'false');
+  });
+  nv.addEventListener('click',function(e){
+    if(e.target.closest('a')){
+      nv.classList.remove('open');btn.setAttribute('aria-expanded','false');closeGroups(null);
+    }
+  });
+
+  var rvs=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
+    },{threshold:.08,rootMargin:'0px 0px -5% 0px'});
+    rvs.forEach(function(el){io.observe(el);});
+  }else{
+    rvs.forEach(function(el){el.classList.add('in');});
+  }
+
+  var links=Array.prototype.slice.call(nv.querySelectorAll('.sub a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  var tb=document.getElementById('top-btn'), ticking=false;
+  function spy(){
+    var y=window.scrollY+120, cur=null;
+    secs.forEach(function(s){ if(s.offsetTop<=y) cur=s; });
+    links.forEach(function(a){ a.classList.toggle('active', !!cur && a.getAttribute('href')==='#'+cur.id); });
+    grps.forEach(function(g){ g.classList.toggle('active', !!g.querySelector('.sub a.active')); });
+    tb.classList.toggle('show', window.scrollY>600);
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){window.requestAnimationFrame(function(){spy();ticking=false;});ticking=true;}
+  },{passive:true});
+  spy();
+  tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* ---------- ワークシート ----------
+     入力はこの端末のlocalStorageにだけ保存する。外部送信は一切しない。 */
+  var KEY='cbt7-worksheet-v1';
+  var ids=['w1','w2','w3a','w3b','w4','w5','w6a','w6b','w7'];
+  var els={}; ids.forEach(function(id){ els[id]=document.getElementById(id); });
+  var o2=document.getElementById('w2o'), o7=document.getElementById('w7o'), diff=document.getElementById('wdiff');
+  var msg=document.getElementById('ws-msg');
+
+  function store(){
+    try{ return window.localStorage; }catch(e){ return null; }
+  }
+  function render(){
+    var a=Number(els.w2.value), b=Number(els.w7.value), d=b-a;
+    o2.textContent=a+' / 10'; o7.textContent=b+' / 10';
+    var tail = d<0 ? '（'+d+'　やわらいだ）' : d>0 ? '（+'+d+'　強まった）' : '（変化なし）';
+    diff.innerHTML='STEP2：<b>'+a+'</b> → STEP7：<b>'+b+'</b>'+tail;
+  }
+  function save(){
+    var s=store(); if(!s) return;
+    var data={}; ids.forEach(function(id){ data[id]=els[id].value; });
+    try{ s.setItem(KEY, JSON.stringify(data)); msg.textContent='保存しました（この端末内のみ）'; }
+    catch(e){ msg.textContent='この環境では保存できません'; }
+  }
+  function load(){
+    var s=store(); if(!s) return;
+    try{
+      var data=JSON.parse(s.getItem(KEY)||'{}');
+      ids.forEach(function(id){ if(typeof data[id]==='string') els[id].value=data[id]; });
+    }catch(e){}
+  }
+
+  load(); render();
+  ids.forEach(function(id){
+    els[id].addEventListener('input',function(){ render(); save(); });
+  });
+  document.getElementById('ws-print').addEventListener('click',function(){ window.print(); });
+  document.getElementById('ws-clear').addEventListener('click',function(){
+    if(!window.confirm('入力した内容をすべて消します。よろしいですか？')) return;
+    els.w1.value=els.w3a.value=els.w3b.value=els.w4.value=els.w5.value=els.w6a.value=els.w6b.value='';
+    els.w2.value=8; els.w7.value=8;
+    var s=store(); if(s){ try{ s.removeItem(KEY); }catch(e){} }
+    render(); msg.textContent='消去しました';
+  });
+})();
+</script>
+</body>
+</html>
