@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>認知行動療法｜まとめノート</title>
-<meta name="description" content="認知行動療法（CBT）の仕組み・科学的エビデンスと限界・実践テクニック（7ステップ認知行動療法、リアプレイザル、ソーシャルサポート分析）・日常への応用までを整理した個人のまとめノート。書き込めるワークシート付き。">
+<meta name="description" content="認知行動療法（CBT）の仕組み・科学的エビデンスと限界・実践テクニック（7ステップ認知行動療法、リアプレイザル、ソーシャルサポート分析）・日常への応用までを整理した個人のまとめノート。書き込めるワークシートと、原典を確認した出典一覧付き。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
@@ -394,6 +394,37 @@ summary .qn{
 .ws-foot .msg{font-size:12.6px;color:var(--ink-3);margin-left:auto;line-height:1.8}
 
 /* ============================================================
+   References（出典）
+   ============================================================ */
+a.ref{
+  font-size:10.5px;vertical-align:super;line-height:0;text-decoration:none;color:var(--calm);
+  background:var(--calm-bg);border-radius:5px;padding:3px 5px;margin:0 1px;letter-spacing:0;
+  font-weight:700;white-space:nowrap;
+}
+a.ref:hover{background:var(--calm);color:var(--surface)}
+
+ol.refs{list-style:none;counter-reset:r;margin:0;padding:0}
+ol.refs > li{
+  counter-increment:r;position:relative;padding:0 0 0 44px;margin-bottom:26px;
+  font-size:14px;color:var(--ink-2);line-height:1.95;scroll-margin-top:86px;
+}
+ol.refs > li:last-child{margin-bottom:0}
+ol.refs > li::before{
+  content:counter(r);position:absolute;left:0;top:3px;width:28px;height:28px;border-radius:8px;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink-3);
+  font-size:12px;font-weight:700;display:grid;place-items:center;line-height:1;
+}
+ol.refs > li:target::before{background:var(--calm-bg);border-color:var(--calm);color:var(--calm)}
+ol.refs .cite{display:block;color:var(--ink);font-weight:500;line-height:1.9}
+ol.refs .what{display:block;font-size:13.3px;color:var(--ink-3);margin-top:5px}
+ol.refs a:not(.ref){font-size:12.6px;word-break:break-all}
+.ref-kind{
+  font-family:var(--serif);font-size:11.5px;letter-spacing:.2em;color:var(--ink-3);
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin:0 0 26px;
+}
+h3.sub + .ref-kind{margin-top:0}
+
+/* ============================================================
    Closing
    ============================================================ */
 .closing{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(32px,6vw,52px);text-align:center}
@@ -465,6 +496,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
         <ul class="sub">
           <li><a href="#apply"><span class="n">06</span>日常の悩みへの応用</a></li>
           <li><a href="#choose"><span class="n">07</span>自分に合うやり方を選ぶ</a></li>
+          <li><a href="#refs"><span class="n">08</span>出典・参考文献</a></li>
         </ul>
       </li>
     </ul></nav>
@@ -548,6 +580,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
         <li><a href="#tools">リアプレイザルと人間関係</a></li>
         <li><a href="#apply">日常の悩みへの応用</a></li>
         <li><a href="#choose">自分に合うやり方を選ぶ</a></li>
+        <li><a href="#refs">出典・参考文献</a></li>
       </ol>
     </div>
   </div>
@@ -633,6 +666,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <p class="rv">
       ネガティブな感情を無理に押し殺そうとすると、かえってその感情に脳が支配される<strong>リバウンド現象</strong>が起きます。
       「考えないようにしよう」とするほど、考えてしまう、あれです。
+      これは「シロクマのことを考えるな」と指示された人ほど、あとでシロクマのことを考えてしまうという古典的な実験で確かめられています<a class="ref" href="#r8">8</a>。
     </p>
     <p class="rv">
       そこで現代的なCBTが目指すのが<strong>ホールネス（全体性）</strong>です。
@@ -685,12 +719,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       <div class="card">
         <span class="label l-evi">不安関連障害</span>
         <h4>治療終了後も1年間、効果が維持</h4>
-        <p>4,118人を対象にしたメタ分析では、治療が終わったあとも1年間は不安症状の軽減効果が保たれていました。とくにPTSD（心的外傷後ストレス障害）では、12ヶ月後も高い効果を保ち続けることが確認されています。</p>
+        <p>69件の臨床試験・4,118人を対象にしたメタ分析では、治療が終わったあとも12ヶ月時点までは不安症状の軽減効果が保たれていました<a class="ref" href="#r1">1</a>。12ヶ月を超えても効果が残っていたのは全般不安症・社交不安症・PTSDで、とくに<strong>PTSDでは大きな効果</strong>が続いていました。一方、<strong>パニック症では12ヶ月以降の効果は有意ではありません</strong>でした。</p>
       </div>
       <div class="card">
         <span class="label l-evi">不眠症</span>
         <h4>6週間の実践が、10年後まで効く</h4>
-        <p>不眠症患者を対象にした6週間のCBTトレーニング（<strong>本による独学</strong>、またはセラピストのガイド付き）の追跡調査では、終了後に約66％の参加者が改善。その効果は1年後、さらには10年後まで維持されていました。</p>
+        <p>不眠症患者への6週間のCBTトレーニング（<strong>自助本による独学</strong>、またはセラピストのガイド付き）の追跡調査では、不眠の重症度スコアが治療前18.3から終了時10.1に下がり、1年後9.2・10年後10.7と低いまま維持されました<a class="ref" href="#r2">2</a>。<strong>不眠症の診断基準を満たさなくなった人は、1年後で64％、10年後で66％</strong>です。</p>
       </div>
     </div>
 
@@ -704,30 +738,33 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
             <text x="60" y="128" font-size="10" fill="var(--ink-3)">6週間の実践</text>
           </g>
           <g>
-            <circle cx="180" cy="86" r="7" fill="var(--evi)"/>
-            <text x="180" y="66" font-size="15" fill="var(--evi)" font-weight="700">約66%</text>
-            <text x="180" y="46" font-size="10.5" fill="var(--ink-3)">が改善</text>
+            <circle cx="180" cy="86" r="5" fill="var(--surface)" stroke="var(--evi)" stroke-width="1.8"/>
+            <text x="180" y="66" font-size="11.5" fill="var(--ink-2)">ISI 18.3 → 10.1</text>
             <text x="180" y="112" font-size="11" fill="var(--ink-2)">終了直後</text>
           </g>
           <g>
-            <circle cx="300" cy="86" r="5" fill="var(--surface)" stroke="var(--evi)" stroke-width="1.8"/>
-            <text x="300" y="66" font-size="11.5" fill="var(--ink-2)">効果 維持</text>
+            <circle cx="300" cy="86" r="7" fill="var(--evi)"/>
+            <text x="300" y="46" font-size="10.5" fill="var(--ink-3)">診断基準を外れた人</text>
+            <text x="300" y="66" font-size="15" fill="var(--evi)" font-weight="700">64%</text>
             <text x="300" y="112" font-size="11" fill="var(--ink-2)">1年後</text>
           </g>
           <g>
-            <circle cx="410" cy="86" r="5" fill="var(--surface)" stroke="var(--evi)" stroke-width="1.8"/>
-            <text x="410" y="66" font-size="11.5" fill="var(--ink-2)">効果 維持</text>
+            <circle cx="410" cy="86" r="7" fill="var(--evi)"/>
+            <text x="410" y="46" font-size="10.5" fill="var(--ink-3)">同</text>
+            <text x="410" y="66" font-size="15" fill="var(--evi)" font-weight="700">66%</text>
             <text x="410" y="112" font-size="11" fill="var(--ink-2)">10年後</text>
           </g>
         </g>
       </svg>
-      <figcaption>不眠症へのCBT。6週間の取り組みが、10年単位の変化として残る例。</figcaption>
+      <figcaption>不眠症へのCBT。6週間の取り組みが、10年単位の変化として残る例。ISI＝不眠重症度指数（数値が低いほど軽い）。</figcaption>
     </figure>
 
     <h3 class="sub rv">② 他の心理療法より、際立って優れているわけではない</h3>
     <p class="rv">
       過去最大クラスのメタ分析（<strong>52,702人・409の試験</strong>が対象）によると、うつ病治療においてCBTは確実に効くものの、
-      他の精神療法――たとえば約300件の臨床試験がある力動的精神療法など――と比べて<strong>際立って優れているわけではない</strong>という結果が出ています。
+      他の精神療法――たとえば力動的精神療法など――と比べて<strong>際立って優れているわけではない</strong>という結果が出ています<a class="ref" href="#r3">3</a>。
+      通常ケアや待機リストと比べれば中〜大の効果があり、それは6〜12ヶ月の追跡でも保たれます。
+      つまり「効かない」のではなく、<strong>「他の心理療法も同じくらい効く」</strong>ということです。
     </p>
     <p class="rv">
       それでも専門家がCBTを強く推奨するのは、効果の大きさではなく<strong>使い勝手</strong>の問題です。
@@ -737,8 +774,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 
     <h3 class="sub rv">③ 「30年で効果が半減した」という報告</h3>
     <p class="rv">
-      1997〜2014年の70件の論文を解析したメタ解析では、うつ病に対するCBTの治療効果が<strong>年々低下している（30年で半減した）</strong>という、
-      なかなか衝撃的なデータも報告されています。研究者が推測する原因は、大きく2つです。
+      1977〜2014年の70件の論文を解析したメタ解析では、うつ病に対するCBTの治療効果が<strong>年々低下している</strong>という、
+      なかなか衝撃的なデータも報告されています<a class="ref" href="#r4">4</a>。論文の著者が推測する原因は、大きく2つです。
+      ただし<strong>この結論には有力な反論があります</strong>（後述）。
     </p>
 
     <ol class="steps rv" style="margin:22px 0 26px">
@@ -769,7 +807,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
         <g font-family="sans-serif" font-size="10.5" fill="var(--ink-3)">
           <text x="44" y="28" text-anchor="end">高</text>
           <text x="44" y="112" text-anchor="end">低</text>
-          <text x="70" y="142" text-anchor="middle">1980年代</text>
+          <text x="70" y="142" text-anchor="middle">1977年</text>
           <text x="250" y="142" text-anchor="middle">2000年前後</text>
           <text x="424" y="142" text-anchor="middle">2014年</text>
           <text x="238" y="14" text-anchor="middle" font-size="11" fill="var(--ink-2)">うつ病に対するCBTの効果量（概念図）</text>
@@ -778,9 +816,15 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       <figcaption>実測値のグラフではなく、報告された傾向を表した概念図です。「効かない」ではなく「初期に見えていたほど劇的ではない」という意味に読んでください。</figcaption>
     </figure>
 
-    <div class="note care rv" style="margin-top:26px">
-      <span class="ttl">この事実を、どう受け取るか</span>
-      <p class="mb0">効果が半減したという報告は、CBTを捨てる理由にはなりません。むしろ<strong>「万能薬という物語から降りて、道具として淡々と使う」</strong>ための情報です。効果の一部が期待によって支えられていたのなら、逆に言えば、自分に合うと感じられる方法を選ぶこと自体にも意味がある、ということでもあります。</p>
+    <div class="note evi rv" style="margin-top:26px">
+      <span class="ttl">補足：この「効果が下がっている」説には反論がある</span>
+      <p>この報告は発表後に再解析され、<strong>低下傾向は1995年より前の22件の研究に強く引きずられたもので、1995年以降の48件では低下は見られない</strong>という指摘が出ています<a class="ref" href="#r5">5</a>。元の著者はこれに再反論しており<a class="ref" href="#r6">6</a>、議論は決着していません。</p>
+      <p class="mb0">したがって「30年で半減した」は、<strong>確定した事実ではなく、論争中の一つの解釈</strong>として読むのが正確です。</p>
+    </div>
+
+    <div class="note care rv" style="margin-top:16px">
+      <span class="ttl">この論争を、どう受け取るか</span>
+      <p class="mb0">効果が下がっているという報告は、どちらに転んでもCBTを捨てる理由にはなりません。むしろ<strong>「万能薬という物語から降りて、道具として淡々と使う」</strong>ための情報です。効果の一部が期待によって支えられているのなら、逆に言えば、自分に合うと感じられる方法を選ぶこと自体にも意味がある、ということでもあります。</p>
     </div>
   </div>
 </section>
@@ -791,7 +835,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <span class="sec-no rv">04</span>
     <h2 class="sec rv">実践①　7ステップ認知行動療法</h2>
     <p class="lede rv">
-      アンドリュー・バーンスタイン博士が開発し、Googleでも採用されたというシンプルなフレームワークです。
+      アンドリュー・バーンスタインが開発したシンプルなフレームワークです（本人は<strong>ActivInsight</strong>と呼んでいます）<a class="ref" href="#r11">11</a>。
       仕事のトラブルや日常のへこみに対する<strong>応急処置</strong>として機能します。
       鍵になるのは、自分が握りしめている<strong>「〜すべき」</strong>を外に出し、それを現実の側から書き換える手順です。
     </p>
@@ -919,7 +963,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 
     <h3 class="sub rv">ツールB　速攻の感情コントロール「リアプレイザル15問」</h3>
     <p class="rv">
-      ジェイソン・M・サターフィールド博士が考案した、トラブルが起きたときに自分へ問いかけることで感情をすばやく落ち着かせる応急処置ツールです。
+      ジェイソン・M・サターフィールド（カリフォルニア大学サンフランシスコ校）による、トラブルが起きたときに自分へ問いかけることで感情をすばやく落ち着かせる応急処置ツールです<a class="ref" href="#r12">12</a>。
       全部に答える必要はなく、<strong>刺さる質問を1〜2個</strong>選んで答えるだけでも効きます。代表的な問いは次のようなものです。
     </p>
 
@@ -950,7 +994,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <h3 class="sub rv">ツールC　人間関係を味方にする「ソーシャルサポート分析」</h3>
     <p class="rv">
       自分を取り巻く人間関係を4つのリソースに分類し、いま抱えている課題の解決にどう役立てられるかを客観的に分析する技法です。
-      興味深いことに、<strong>分類を書き出すだけでも孤独感がやわらぎ、メンタルが改善する</strong>ことが知られています。
+      この4分類は、ソーシャルサポート研究で古くから使われている枠組みにもとづいています<a class="ref" href="#r9">9</a>。
       「誰もいない」と感じているときほど、実際に書き出すと空欄ではないことに気づきます。
     </p>
 
@@ -1032,6 +1076,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       現代の医学では、慢性的な腰痛の多くは姿勢の悪さや骨のダメージではなく、
       <strong>脳の変調（メンタルの恐怖）</strong>が原因であることが判明しています。
       痛みを恐れて腰をかばう → 動かさないので運動不足になる → 脳が痛みに敏感になる → さらに恐れる、という悪循環です。
+      これは慢性痛研究で<strong>恐怖回避モデル</strong>と呼ばれ、慢性的な筋骨格系の痛みを説明する代表的な理論になっています<a class="ref" href="#r10">10</a>。
     </p>
     <ul class="list rv" style="margin-bottom:20px">
       <li><strong>「そう簡単に腰は傷まない」という事実を頭に叩き込む。</strong>ここが認知の修正にあたります。</li>
@@ -1040,7 +1085,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     </ul>
     <div class="note act rv">
       <span class="ttl">マインドフルネスとの比較</span>
-      <p class="mb0">瞑想とヨガを組み合わせたマインドフルネス療法（MBSR）と比べても、CBTには同等以上の腰痛改善効果があるという研究結果が出ています。とくに<strong>不安や心配性の解消</strong>においては、CBTのほうが高い効果を発揮しました。</p>
+      <p>342人を対象にした無作為化比較試験では、瞑想とヨガを組み合わせたマインドフルネス療法（MBSR）とCBTを比べています<a class="ref" href="#r7">7</a>。結果は、<strong>痛みと機能制限という主要な指標では両者に有意差なし</strong>（どちらも通常ケアより優れる）。つまりCBTは、MBSRと<strong>同等</strong>の腰痛改善効果を持ちます。</p>
+      <p class="mb0">ただし副次的な指標では差が出ました。<strong>不安（GAD-2）については、26週時点でCBTがMBSRを有意に上回っています</strong>。「腰痛そのものはどちらでもよいが、不安も一緒に減らしたいならCBT」という読み方ができます。</p>
     </div>
     <p class="rv" style="margin-top:20px;font-size:13.6px;color:var(--ink-3)">
       ※ ただし、しびれ・発熱・排尿の異常・原因のはっきりした外傷などを伴う痛みは別です。まず整形外科などで器質的な問題がないことを確認してから取り組んでください。
@@ -1048,8 +1094,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 
     <h3 class="sub rv">③ CBTを応用した「断捨離（片付け）」</h3>
     <p class="rv">
-      セス・ギリガン博士のCBT研究にもとづき、片付けを阻む自動思考（「後で必要になったらどうしよう」など）や、
-      捨てるときの精神的な苦痛を乗り越える方法が開発されています。
+      臨床心理学者セス・ギリハンのCBTにもとづく考え方として紹介されているものです<a class="ref" href="#r13">13</a>。
+      片付けを阻む自動思考（「後で必要になったらどうしよう」など）や、捨てるときの精神的な苦痛を乗り越える方法として整理されています。
     </p>
 
     <ol class="steps rv">
@@ -1120,6 +1166,126 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
   </div>
 </section>
 
+<!-- ===================== 08 REFERENCES ===================== -->
+<section id="refs">
+  <div class="wrap">
+    <span class="sec-no rv">08</span>
+    <h2 class="sec rv">出典・参考文献</h2>
+    <p class="lede rv">
+      本文中の<a class="ref" href="#refs">数字</a>は、以下の文献に対応しています。
+      研究データについては、可能な限り原典にあたって数値と結論を確認しました。
+      あわせて、<strong>出典を特定できなかった記述</strong>も最後に正直に挙げています。
+    </p>
+
+    <p class="ref-kind rv">RESEARCH ／ 研究論文</p>
+    <ol class="refs rv">
+      <li id="r1">
+        <span class="cite">van Dis EAM, van Veen SC, Hagenaars MA, et al. Long-term Outcomes of Cognitive Behavioral Therapy for Anxiety-Related Disorders: A Systematic Review and Meta-analysis. <em>JAMA Psychiatry</em>. 2020;77(3):265–273.</span>
+        <span class="what">69件の無作為化比較試験・4,118人。12ヶ月以降も効果が残ったのは全般不安症（g=0.22）・社交不安症（g=0.42）・PTSD（g=0.84）で、パニック症では有意でなかった。</span>
+        <a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2756136">jamanetwork.com/journals/jamapsychiatry/fullarticle/2756136</a>
+      </li>
+      <li id="r2">
+        <span class="cite">Jernelöv S, Blom K, Hentati Isacsson N, et al. Very long-term outcome of cognitive behavioral therapy for insomnia: one- and ten-year follow-up of a randomized controlled trial. <em>Cognitive Behaviour Therapy</em>. 2022;51(1):72–88.</span>
+        <span class="what">自助本による6週間のCBT-I（セラピスト支援あり／なし／待機の3群）。不眠重症度指数は18.3→10.1（終了時）→9.2（1年後）→10.7（10年後）。診断基準を満たさなくなった人は1年後64％、10年後66％。</span>
+        <a href="https://www.tandfonline.com/doi/full/10.1080/16506073.2021.2009019">tandfonline.com/doi/full/10.1080/16506073.2021.2009019</a>
+      </li>
+      <li id="r3">
+        <span class="cite">Cuijpers P, Miguel C, Harrer M, et al. Cognitive behavior therapy vs. control conditions, other psychotherapies, pharmacotherapies and combined treatment for depression: a comprehensive meta-analysis including 409 trials with 52,702 patients. <em>World Psychiatry</em>. 2023;22(1):105–115.</span>
+        <span class="what">単一の心理療法についての史上最大規模のメタ分析。CBTは対照条件に対して中〜大の効果を示し、6〜12ヶ月後も維持されるが、他の心理療法との差は際立たない。</span>
+        <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/wps.21069">onlinelibrary.wiley.com/doi/full/10.1002/wps.21069</a>
+      </li>
+      <li id="r4">
+        <span class="cite">Johnsen TJ, Friborg O. The effects of cognitive behavioral therapy as an anti-depressive treatment is falling: A meta-analysis. <em>Psychological Bulletin</em>. 2015;141(4):747–768.</span>
+        <span class="what">1977〜2014年の70件を解析し、発表年と効果量のあいだに負の相関を報告した論文。本文の「効果が下がっている」はこれが出典。</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/25961373/">pubmed.ncbi.nlm.nih.gov/25961373/</a>
+      </li>
+      <li id="r5">
+        <span class="cite">Ljótsson B, Hedman E, Mattsson S, Andersson E. The effects of cognitive-behavioral therapy for depression are not falling: A re-analysis of Johnsen and Friborg (2015). <em>Psychological Bulletin</em>. 2017;143(3):321–325.</span>
+        <span class="what">上の低下傾向は1995年より前の22件に強く引きずられたもので、1995年以降の48件では低下していないという再解析。Cristea らも同様の指摘をしている。</span>
+      </li>
+      <li id="r6">
+        <span class="cite">Friborg O, Johnsen TJ. The effect of cognitive-behavioral therapy as an antidepressive treatment is falling: Reply to Ljótsson et al. (2017) and Cristea et al. (2017). <em>Psychological Bulletin</em>. 2017;143(3):341–345.</span>
+        <span class="what">元の著者による再反論。ハミルトンうつ病評価尺度を用いた34件では低下が再現された一方、ベック抑うつ質問票を用いた67件では再現されなかった。議論は未決着。</span>
+      </li>
+      <li id="r7">
+        <span class="cite">Cherkin DC, Sherman KJ, Balderson BH, et al. Effect of Mindfulness-Based Stress Reduction vs Cognitive Behavioral Therapy or Usual Care on Back Pain and Functional Limitations in Adults With Chronic Low Back Pain: A Randomized Clinical Trial. <em>JAMA</em>. 2016;315(12):1240–1249.</span>
+        <span class="what">342人。主要アウトカム（機能制限・痛み）ではMBSRとCBTに有意差なし。副次アウトカムの不安（GAD-2）は26週時点でCBTが有意に上回った（群間差 −0.49、95%CI −0.85〜−0.12）。</span>
+        <a href="https://jamanetwork.com/journals/jama/fullarticle/2504811">jamanetwork.com/journals/jama/fullarticle/2504811</a>
+      </li>
+      <li id="r8">
+        <span class="cite">Wegner DM, Schneider DJ, Carter SR, White TL. Paradoxical effects of thought suppression. <em>Journal of Personality and Social Psychology</em>. 1987;53(1):5–13.</span>
+        <span class="what">「シロクマのことを考えるな」実験。思考の抑制がかえってその思考を増やすことを示した、リバウンド現象の古典。</span>
+      </li>
+      <li id="r9">
+        <span class="cite">Cohen S, Wills TA. Stress, social support, and the buffering hypothesis. <em>Psychological Bulletin</em>. 1985;98(2):310–357.</span>
+        <span class="what">ソーシャルサポートを4機能（情報／手段・実体／所属・交友／感情・自尊）に整理した代表的な研究。本文の4分類はこの枠組みにあたる。</span>
+      </li>
+      <li id="r10">
+        <span class="cite">Vlaeyen JWS, Linton SJ. Fear-avoidance and its consequences in chronic musculoskeletal pain: a state of the art. <em>Pain</em>. 2000;85(3):317–332.</span>
+        <span class="what">恐怖回避モデル。痛みへの恐怖が回避行動を生み、それが廃用と痛みの増悪につながる悪循環を説明した理論。</span>
+      </li>
+    </ol>
+
+    <h3 class="sub rv">書籍・講座</h3>
+    <ol class="refs rv" start="11" style="counter-reset:r 10">
+      <li id="r11">
+        <span class="cite">Andrew Bernstein. <em>The Myth of Stress</em>（2010）／改訂版 <em>Breaking the Stress Cycle: 7 Steps to Greater Resilience, Happiness, and Peace of Mind</em>（2020）.</span>
+        <span class="what">7ステップの出典。著者自身はこの手法を ActivInsight（Active Insight）と呼んでいる。</span>
+      </li>
+      <li id="r12">
+        <span class="cite">Jason M. Satterfield. <em>Cognitive Behavioral Therapy: Techniques for Retraining Your Brain</em>. The Great Courses, 2015（全24講義）.</span>
+        <span class="what">カリフォルニア大学サンフランシスコ校の教授による講座。リアプレイザル（再評価）の質問群はここで扱われている。</span>
+      </li>
+      <li id="r13">
+        <span class="cite">Seth J. Gillihan. <em>Cognitive Behavioral Therapy Made Simple</em>（2018）／<em>Retrain Your Brain: CBT in 7 Weeks</em>（2016）／<em>Mindful Cognitive Behavioral Therapy</em>（2022）.</span>
+        <span class="what">片付けに関する記述の背景にある著者。本人のサイトにも Decluttering のカテゴリがある。</span>
+        <a href="https://sethgillihan.com/">sethgillihan.com</a>
+      </li>
+    </ol>
+
+    <h3 class="sub rv">出典を特定できなかった記述</h3>
+    <p class="rv">
+      以下は、このノートに書いてあるものの<strong>裏づけとなる一次資料を確認できなかった</strong>記述です。
+      間違いだと判明したわけではありませんが、読むときは「そういう説がある」程度に受け取ってください。
+    </p>
+    <div class="rv">
+      <details>
+        <summary><span class="qn">未確認</span>「Googleも採用する」7ステップ</summary>
+        <div class="body"><p class="mb0">バーンスタインの講演者プロフィールに、企業クライアントとして Google の名前が挙がっているのは事実です。ただし<strong>Google の公式な社内研修プログラムとして採用された</strong>ことを示す一次情報は見つかりませんでした。本文では「Googleも採用する」という表現を外しています。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>リアプレイザル「15問」という構成</summary>
+        <div class="body"><p class="mb0">サターフィールドの講座がリアプレイザルを扱っているのは確かですが、<strong>ちょうど15問からなる決まったリスト</strong>が存在することは公開情報から確認できませんでした。このノートには、元の資料に挙げられていた代表的な5問だけを載せています。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>断捨離の4原則（まず捨てる／自己信頼／アクセプタンス／20分への分解）</summary>
+        <div class="body"><p class="mb0">ギリハンが片付けとCBTについて書いているのは事実ですが、この<strong>4つの手順という形にまとまった原典</strong>（どの著書・どの記事か）は特定できませんでした。「毎日15分を1日3回」「20分以内のサブタスク」といった具体的な数字の出どころも不明です。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>「分類を書き出すだけで孤独感が和らぐ」</summary>
+        <div class="body"><p class="mb0">ソーシャルサポートの4分類そのものは確立した枠組みです<a class="ref" href="#r9">9</a>が、<strong>「書き出すだけでメンタルが改善する」</strong>という主張を直接支持する研究は特定できませんでした。本文からはこの一文を外しています。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>ダイエットの「マイナスループ」</summary>
+        <div class="body"><p class="mb0">ストレスと過食の関連自体は広く知られていますが、<strong>「痩せなければというプレッシャーがドカ食いを生む」という特定の研究</strong>は元の資料でも示されていません。CBTの応用例としての説明であり、実証されたモデルとしては読まないでください。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>腰痛への「1日15分のウォーキング」「痛みの10段階記録」</summary>
+        <div class="body"><p class="mb0">恐怖回避モデル<a class="ref" href="#r10">10</a>と、運動療法・セルフモニタリングが慢性腰痛に有効であること自体は確立しています。ただし<strong>この具体的な数字（15分・10段階）のプロトコル</strong>がどの研究に基づくのかは特定できませんでした。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>「ホールネス（全体性）」という用語</summary>
+        <div class="body"><p class="mb0">感情を抑圧せず受け入れるという考え方は、ACT（アクセプタンス＆コミットメント・セラピー）などの第三世代CBTに共通します。ただし<strong>「ホールネス」が特定の学派の確立した専門用語である</strong>ことは確認できませんでした。なおリバウンド現象そのものには明確な出典があります<a class="ref" href="#r8">8</a>。</p></div>
+      </details>
+    </div>
+
+    <div class="note rv" style="margin-top:26px">
+      <span class="ttl">確認して修正した点</span>
+      <p class="mb0">原典にあたった結果、元にした資料の記述と食い違った箇所が3つあり、このノートでは原典の数値に合わせています。①不眠症の「66％」は治療終了直後ではなく<strong>10年後</strong>の数字で、1年後は64％<a class="ref" href="#r2">2</a>。②CBTの効果低下を報告したメタ解析の対象期間は1997年からではなく<strong>1977年</strong>から<a class="ref" href="#r4">4</a>。③腰痛でCBTがMBSRを上回ったのは痛みそのものではなく<strong>不安の指標</strong>で、痛み・機能では両者に有意差なし<a class="ref" href="#r7">7</a>。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CLOSING ===================== -->
 <section style="border-top:1px solid var(--line)">
   <div class="wrap">
@@ -1142,7 +1308,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <p class="disc">
       専門家ではない個人が、書籍や公開資料をもとにまとめた個人的なまとめノートです。内容の正確性を保証するものではありません。
       医学的な診断・治療・助言に代わるものではないため、気になる症状や困りごとがある場合は、必ず医療機関または公的な相談窓口にご相談ください。
-      掲載している研究データは出典元の記述にもとづく要約であり、数値や解釈は原典と異なる場合があります。
+      掲載している研究データは、可能な範囲で原典（<a href="#refs">出典一覧</a>）にあたって数値と結論を確認していますが、要約の過程で原典のニュアンスが失われている可能性があります。出典を特定できなかった記述は、<a href="#refs">08章</a>に明示しています。
       うつ・不安の症状が重い時期に、ひとりで思考の検証を行うことは推奨されません。
       ワークシートに入力した内容はご利用の端末のブラウザ内にのみ保存され、外部には送信されません。
     </p>
