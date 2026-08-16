@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>認知行動療法｜まとめノート</title>
-<meta name="description" content="認知行動療法（CBT）の仕組み・科学的エビデンスと限界・実践テクニック（7ステップ認知行動療法、リアプレイザル、ソーシャルサポート分析）・日常への応用までを整理した個人のまとめノート。書き込めるワークシートと、原典を確認した出典一覧付き。">
+<meta name="description" content="認知行動療法（CBT）の5領域モデル・自動思考とスキーマ・認知のかたより・3つの世代・科学的エビデンスと限界・代表的な技法（コラム法、行動活性化、問題解決療法）・症状別の王道・日常への応用までを整理した個人のまとめノート。書き込めるワークシート2種と、原典を確認した出典一覧付き。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
@@ -477,26 +477,31 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <button class="navbtn" id="navbtn" aria-expanded="false" aria-controls="nv">メニュー</button>
     <nav aria-label="ノートの目次"><ul class="menu" id="nv">
       <li class="grp">
-        <button class="gbtn" type="button" aria-expanded="false">理解する</button>
+        <button class="gbtn" type="button" aria-expanded="false">基礎を知る</button>
         <ul class="sub">
           <li><a href="#what"><span class="n">01</span>CBTとは何か</a></li>
-          <li><a href="#core"><span class="n">02</span>土台にある4つの考え方</a></li>
-          <li><a href="#evidence"><span class="n">03</span>エビデンスと、その限界</a></li>
+          <li><a href="#model"><span class="n">02</span>5つの領域と自動思考</a></li>
+          <li><a href="#bias"><span class="n">03</span>認知のかたより</a></li>
+          <li><a href="#waves"><span class="n">04</span>3つの世代</a></li>
+          <li><a href="#evidence"><span class="n">05</span>エビデンスと、その限界</a></li>
         </ul>
       </li>
       <li class="grp">
-        <button class="gbtn" type="button" aria-expanded="false">実践する</button>
+        <button class="gbtn" type="button" aria-expanded="false">手を動かす</button>
         <ul class="sub">
-          <li><a href="#seven"><span class="n">04</span>7ステップ認知行動療法</a></li>
-          <li><a href="#tools"><span class="n">05</span>リアプレイザルと人間関係</a></li>
+          <li><a href="#skills"><span class="n">06</span>代表的な技法</a></li>
+          <li><a href="#column"><span class="n">07</span>コラム法</a></li>
+          <li><a href="#seven"><span class="n">08</span>7ステップ認知行動療法</a></li>
+          <li><a href="#tools"><span class="n">09</span>リアプレイザルと人間関係</a></li>
         </ul>
       </li>
       <li class="grp">
-        <button class="gbtn" type="button" aria-expanded="false">日常に置く</button>
+        <button class="gbtn" type="button" aria-expanded="false">当てはめる</button>
         <ul class="sub">
-          <li><a href="#apply"><span class="n">06</span>日常の悩みへの応用</a></li>
-          <li><a href="#choose"><span class="n">07</span>自分に合うやり方を選ぶ</a></li>
-          <li><a href="#refs"><span class="n">08</span>出典・参考文献</a></li>
+          <li><a href="#disorders"><span class="n">10</span>症状別の王道</a></li>
+          <li><a href="#apply"><span class="n">11</span>日常の悩みへの応用</a></li>
+          <li><a href="#choose"><span class="n">12</span>原則と、やり方の選び方</a></li>
+          <li><a href="#refs"><span class="n">13</span>出典・参考文献</a></li>
         </ul>
       </li>
     </ul></nav>
@@ -574,12 +579,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       <h2>もくじ</h2>
       <ol>
         <li><a href="#what">CBTとは何か</a></li>
-        <li><a href="#core">土台にある4つの考え方</a></li>
+        <li><a href="#model">5つの領域と自動思考・スキーマ</a></li>
+        <li><a href="#bias">認知のかたより</a></li>
+        <li><a href="#waves">3つの世代</a></li>
         <li><a href="#evidence">エビデンスと、その限界</a></li>
+        <li><a href="#skills">代表的な技法</a></li>
+        <li><a href="#column">コラム法</a></li>
         <li><a href="#seven">7ステップ認知行動療法</a></li>
         <li><a href="#tools">リアプレイザルと人間関係</a></li>
+        <li><a href="#disorders">症状別の王道</a></li>
         <li><a href="#apply">日常の悩みへの応用</a></li>
-        <li><a href="#choose">自分に合うやり方を選ぶ</a></li>
+        <li><a href="#choose">原則と、やり方の選び方</a></li>
         <li><a href="#refs">出典・参考文献</a></li>
       </ol>
     </div>
@@ -593,8 +603,27 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <h2 class="sec rv">CBTとは、「思考の偏り」を点検する技術</h2>
     <p class="lede rv">
       認知行動療法（Cognitive Behavioral Therapy）は、ストレスを感じたときに無意識に湧き上がる<strong>自動思考</strong>――
-      その中に紛れ込んだ思考の偏りやエラー（<strong>認知の歪み</strong>）――を修正することで、感情と行動をコントロールしていく心理療法です。
+      その中に紛れ込んだ思考の偏り（<strong>認知のかたより</strong>）――を修正することで、感情と行動をコントロールしていく<strong>構造化された精神療法</strong>です。
       感情を直接どうにかしようとするのではなく、感情の一つ手前にある<strong>解釈</strong>に手を入れるのが特徴です。
+    </p>
+
+    <div class="grid g2 rv" style="margin-bottom:28px">
+      <div class="card">
+        <span class="label l-think">成り立ち</span>
+        <h4>1970年代、うつ病の治療法として</h4>
+        <p class="mb0">精神科の治療法としてのCBTは、<strong>1970年代に米国の精神科医アーロン・ベック（Aaron T. Beck）がうつ病に対する精神療法として開発</strong>したものです<a class="ref" href="#r14">14</a><a class="ref" href="#r15">15</a>。日本でとくに注目されるようになったのは1980年代後半からで、現在は保険診療の対象にもなっています。</p>
+      </div>
+      <div class="card">
+        <span class="label l-act">目的</span>
+        <h4>患者自身が心を制御する力を持つこと</h4>
+        <p class="mb0">最終的なゴールは、治療者に治してもらうことではありません。認知と行動の双方に働きかけて悪循環を断ち、<strong>患者自身が自分の心を扱う力（セルフコントロール）を身につける</strong>ことに置かれています。だからこそ独学とも相性がよいのです。</p>
+      </div>
+    </div>
+
+    <p class="rv">
+      適用範囲はうつ病にとどまりません。不安症（パニック症・社交不安症・強迫症など）、ストレス関連障害、パーソナリティ障害、
+      摂食障害、統合失調症などについて、<strong>治療効果と再発予防効果を裏づけるエビデンスが数多く報告</strong>されており、
+      さらに精神疾患以外――日常のストレス対処、夫婦問題、司法や教育の場面にまで、使われる範囲は広がっています<a class="ref" href="#r14">14</a>。
     </p>
 
     <div class="grid g3 rv" style="margin-bottom:28px">
@@ -618,6 +647,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
     <p class="rv">
       この3つは一方通行ではなく、輪になって互いを強め合います。だから輪のどこか一点――特に、比較的<strong>言葉にしやすい「思考」</strong>――に
       介入すれば、感情も行動も一緒に動く。これがCBTの基本的な発想です。
+      実際の臨床では、ここに<strong>「状況」と「身体反応」</strong>を加えた5つの領域で見立てます（<a href="#model">次章</a>）。
     </p>
 
     <div class="note rv">
@@ -627,55 +657,261 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
   </div>
 </section>
 
-<!-- ===================== 02 CORE ===================== -->
-<section id="core">
+<!-- ===================== 02 MODEL ===================== -->
+<section id="model">
   <div class="wrap">
     <span class="sec-no rv">02</span>
-    <h2 class="sec rv">土台にある4つの考え方</h2>
+    <h2 class="sec rv">5つの領域と、自動思考・スキーマ</h2>
     <p class="lede rv">
-      具体的な手順に入る前に、CBTを支える心理学的なアプローチを4つ押さえておくと、
-      なぜワークシートが「ただ書くだけ」に見えて効くのかが腑に落ちます。
+      臨床のCBTでは、心の状態を<strong>「状況」「認知」「気分」「行動」「身体反応」</strong>の5つの領域に分け、
+      それらが互いに影響し合う一つのシステムとして見立てます<a class="ref" href="#r16">16</a>。
+      どれか一つが原因なのではなく、5つが輪になって現状を維持している――そう捉えると、手の入れどころが増えます。
     </p>
 
-    <h3 class="sub rv">① 自動思考のキャッチと客観化</h3>
+    <figure class="card rv" style="margin-bottom:30px">
+      <svg viewBox="0 0 460 300" role="img" aria-label="状況を外枠として、認知・気分・行動・身体反応の4つが相互に矢印で結ばれた5領域モデルの図。">
+        <defs>
+          <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0 1 L9 5 L0 9 z" fill="var(--ink-3)"/>
+          </marker>
+        </defs>
+        <rect x="14" y="30" width="432" height="242" rx="16" fill="none" stroke="var(--line-2)" stroke-dasharray="5 4"/>
+        <text x="30" y="22" font-size="12" fill="var(--ink-3)" font-family="sans-serif">状況（環境・出来事）</text>
+
+        <g fill="none" stroke="var(--ink-3)" stroke-width="1.5" opacity=".75" marker-end="url(#a2)" marker-start="url(#a2)">
+          <path d="M230 96 L230 130"/>
+          <path d="M164 78 L110 130"/>
+          <path d="M296 78 L350 130"/>
+          <path d="M112 186 L112 214"/>
+          <path d="M348 186 L348 214"/>
+          <path d="M168 230 L292 230"/>
+        </g>
+
+        <g font-family="sans-serif" text-anchor="middle">
+          <g>
+            <rect x="160" y="46" width="140" height="46" rx="11" fill="var(--think-bg)" stroke="var(--think)" stroke-width="1.5"/>
+            <text x="230" y="68" font-size="13.5" fill="var(--think)" font-weight="700">認知</text>
+            <text x="230" y="84" font-size="10.5" fill="var(--think)">自動思考・スキーマ</text>
+          </g>
+          <g>
+            <rect x="52" y="136" width="120" height="44" rx="11" fill="var(--feel-bg)" stroke="var(--feel)" stroke-width="1.5"/>
+            <text x="112" y="164" font-size="13.5" fill="var(--feel)" font-weight="700">気分・感情</text>
+          </g>
+          <g>
+            <rect x="290" y="136" width="120" height="44" rx="11" fill="var(--act-bg)" stroke="var(--act)" stroke-width="1.5"/>
+            <text x="350" y="164" font-size="13.5" fill="var(--act)" font-weight="700">行動</text>
+          </g>
+          <g>
+            <rect x="140" y="216" width="180" height="44" rx="11" fill="var(--evi-bg)" stroke="var(--evi)" stroke-width="1.5"/>
+            <text x="230" y="244" font-size="13.5" fill="var(--evi)" font-weight="700">身体反応</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>5つの領域モデル。矢印が両向きなのがポイントで、認知だけが上流にあるわけではない。行動や身体から手をつけてもよい。</figcaption>
+    </figure>
+
+    <h3 class="sub rv">自動思考 ── 一瞬でわいてくる考え</h3>
     <p class="rv">
-      ストレスに直面したとき、脳は瞬時に極端な解釈を働かせます。これは省エネのための仕組みであって、正確さのための仕組みではありません。
+      何らかの出来事に直面したとき、頭の中に半ば無意識・自動的にわき起こる、瞬間的な考えやイメージ、記憶のこと。
+      たとえば<strong>知り合いに挨拶したのに無視されたように感じたとき、瞬時に「嫌われているのかもしれない」とわく</strong>、あれが自動思考です。
+    </p>
+    <p class="rv">
+      これは省エネのための仕組みであって、正確さのための仕組みではありません。
       CBTでは、その解釈を「自分そのもの」と同一視せず、<strong>検証にかけられる一つの仮説</strong>として扱います。
       「私はダメだ」ではなく「私はいま『私はダメだ』と考えている」と置き直すこと。この一段のズレが、客観化のはじまりです。
     </p>
-
-    <h3 class="sub rv">② 外在化 ── 脳の外に出す</h3>
-    <p class="rv">
-      モヤモヤした思考や感情を、頭の中だけで処理せず<strong>紙に書き出して脳の外に出す</strong>作業です。
-      頭の中にある限り、思考は形を変えながら何度でも戻ってきますが、文字として固定されたとたん、
-      それは「観察できる対象」に変わります。プレッシャーから距離を取り、冷静に現状を把握するための、もっとも安価な道具が紙とペンです。
-    </p>
-    <div class="note evi rv">
-      <p class="mb0">このノートに書き込み欄（ワークシート）を用意しているのも同じ理由です。読むだけでは外在化は起きません。<strong>書き出したときに初めて効き始める</strong>のがCBTの実践です。</p>
+    <div class="note rv">
+      <span class="ttl">「ホットな自動思考」を狙う</span>
+      <p class="mb0">気持ちが大きく動揺したときや、反射的に激しい行動をとったときには、<strong>感情を強く動かした「ホットな」自動思考</strong>が隠れていることが多いとされます<a class="ref" href="#r14">14</a>。書き出すときは、たくさん出た考えのうち、いちばん胸がざわつく一文に印をつけると作業が進みます。</p>
     </div>
 
-    <h3 class="sub rv">③ リフレーミング ── 枠を掛け替える</h3>
+    <h3 class="sub rv">スキーマ ── 自動思考を作っている心のルール</h3>
     <p class="rv">
-      記憶や出来事そのものは、本来は無色透明です。それが「良い思い出」にも「嫌な出来事」にもなるのは、
-      そのとき貼りつけた感情と解釈による色づけの結果にすぎません。
-      この<strong>捉え方の枠組み（フレーム）を掛け替える技術</strong>がリフレーミングです。
-      事実をねじ曲げて無理にポジティブに言い換えることではなく、同じ事実の別の面に光を当て直すことを指します。
+      自動思考をせっせと生み出している、心の奥底にあるマイルールや価値観のテンプレートが<strong>スキーマ（中核的信念）</strong>です。
+      幼少期からの成育歴や成功・失敗体験によって形づくられ、ふだんは眠っていますが、特定の状況で活性化されると
+      「私は無能だ」「他人は敵だ」といった極端な自動思考を次々に生み出します。
+    </p>
+    <p class="rv">
+      厚生労働省のマニュアルでは、スキーマは<strong>自己・他者・世界という3つの領域</strong>に整理されており、
+      とくにうつ状態と強く関係するのは<strong>自己へのスキーマ</strong>だとされています<a class="ref" href="#r14">14</a>。
+      標準的な治療プログラム（全16〜20回）でも、スキーマを扱うのは終盤の第13〜14回あたりで、
+      まずは自動思考を扱えるようになってから奥に進む、という順番が取られます。
     </p>
 
-    <h3 class="sub rv">④ ホールネス ── 感情のダークサイドも認める</h3>
+    <div class="note evi rv">
+      <span class="ttl">下向き矢印法 ── 奥のルールを掘り当てる</span>
+      <p class="mb0">自動思考の下にあるスキーマを探る技法です。「その考えが<strong>もし本当だとしたら</strong>、それは自分にとってどういう意味があるのか？」という問いを、答えが出るたびに繰り返します。「納期に遅れた」→「無能だと思われる」→「見捨てられる」→<strong>「価値のない人間は誰にも必要とされない」</strong>。この最後に出てくる一文がスキーマです。ここに気づけると、同じパターンの再発を防ぎやすくなります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 BIAS ===================== -->
+<section id="bias">
+  <div class="wrap">
+    <span class="sec-no rv">03</span>
+    <h2 class="sec rv">認知のかたより ── よくある11のパターン</h2>
+    <p class="lede rv">
+      ストレス下やうつ状態では、情報を処理するプロセスに特有の偏りが生じます。
+      ベックはこれを<strong>「体系的な推論の誤り」</strong>と呼びました<a class="ref" href="#r15">15</a>。
+      大事なのは、これが<strong>誰にでも起きる普通のこと</strong>だという点です。
+      自分のパターンに名前がつくと、渦中でも「あ、いま白黒思考だ」と気づけるようになります。
+    </p>
+
+    <div class="note rv" style="margin-bottom:30px">
+      <span class="ttl">先に、出典について</span>
+      <p class="mb0">以下の<strong>1〜7は厚生労働省の患者用資料に載っている7パターン</strong>です<a class="ref" href="#r17">17</a>。<strong>8〜11は別の文献に由来</strong>し、8はベックの原著<a class="ref" href="#r15">15</a>、9〜11はリーヒーらの認知の歪みリスト<a class="ref" href="#r18">18</a>にあたります。一つのまとまった公式リストがあるわけではないので、番号は便宜的なものです。</p>
+    </div>
+
+    <div class="rv">
+      <details>
+        <summary><span class="qn">01</span>感情的きめつけ（情緒的な理由づけ）</summary>
+        <div class="body">
+          <p>客観的な証拠がないのに、その時の<strong>自分の感情</strong>を根拠にして、それが真実だと判断してしまう。</p>
+          <p class="mb0"><strong>例：</strong>取引先から一日連絡がないだけで「嫌われた」と思い込む。／新しい仕事に不安を感じたとき、「初めてだから不安なのだ」ではなく「こんなに不安ということは、自分にはできない難しい仕事に違いない」と決めつける。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">02</span>選択的注目（こころの色眼鏡）</summary>
+        <div class="body">
+          <p>良いこともたくさん起きているのに、<strong>ささいなネガティブ1つ</strong>に注意が吸い寄せられ、それ以外を無視してしまう。</p>
+          <p class="mb0"><strong>例：</strong>他の全員からクリスマスカードが届いたのに、旧友1人から届かなかったことで「友人を失った、もう誰も自分に関心がない」と考える。その旧友が15年間毎年送ってくれていたことも、今年は転居と転職で多忙だったことも視界に入らない。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">03</span>過度の一般化</summary>
+        <div class="body">
+          <p>わずかな、あるいはたった一度の経験から、<strong>「これからもすべて同じ結果になる」</strong>という広範囲の結論を出す。</p>
+          <p class="mb0"><strong>例：</strong>1つ仕事がうまくいかなかっただけで「自分は何一つ仕事ができない人間だ」。／テストでB評価を取り「人生のいたるところで落第することになる」。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">04</span>拡大解釈と過小評価</summary>
+        <div class="body">
+          <p>自分の失敗や都合の悪いことは<strong>実際より大きく</strong>、うまくできていることは<strong>小さく</strong>見積もる。</p>
+          <p class="mb0"><strong>例：</strong>パニック症の人が、一過性の動悸を「心臓発作が起きた」、息切れを「呼吸が止まる」と破局的に解釈する。身体感覚の意味が著しく誇張される。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">05</span>自己非難（個人化）</summary>
+        <div class="body">
+          <p>本来自分に関係のない出来事まで<strong>自分のせい</strong>にし、必要以上に責任を背負い込む。</p>
+          <p class="mb0"><strong>例：</strong>身近な人が心臓発作で亡くなったとき、「私がタバコをやめるよう強く忠告していれば死ななかったのに」と自分を責める。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">06</span>“0か100か”思考（白黒思考・完璧主義）</summary>
+        <div class="body">
+          <p>白黒つけないと気がすまず、<strong>「完璧か、さもなくば悲惨か」</strong>の二者択一で捉える。</p>
+          <p class="mb0"><strong>例：</strong>取引自体は成立したのに、期待した価格ではなかったというだけで「この取引は失敗だ」と自分を責める。／授業中に居眠りしている生徒を1人見ただけで「自分は教師失格だ」と考える。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">07</span>自分で実現してしまう予言</summary>
+        <div class="body">
+          <p>否定的な予測を立て、それを避けようとして<strong>自ら行動を制限した結果、予測どおり失敗する</strong>という悪循環。</p>
+          <p class="mb0"><strong>例：</strong>「どうせ誰も声をかけてくれない」と決めつけて引っこみ思案になり、本当に声をかけられなくなって「やはり予測は当たっていた」と確信を深める。／「声が震えるのでは」と心配しすぎて緊張が高まり、本当に震える。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">08</span>恣意的推論</summary>
+        <div class="body">
+          <p>結論を裏づける事実がない（あるいは<strong>相反する事実がある</strong>）のに、ネガティブな結論に結びつける。</p>
+          <p class="mb0"><strong>例：</strong>エレベーターの事故確率は無視できるほど小さいと説明されても納得できず、「落下する確率は10％以上あり、自分はけがをする」と決めつける。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">09</span>“すべき”思考</summary>
+        <div class="body">
+          <p>物事を「どうあるか」ではなく<strong>「どうあるべきか」</strong>で解釈する。自分に向けば自責、他人に向けば怒りになる。</p>
+          <p class="mb0"><strong>例：</strong>家事が十分にこなせない自分に対して「主婦なら家事を完璧にするべきだ」と考え、現状を受け入れられずに責め立てる。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">10</span>他者非難</summary>
+        <div class="body">
+          <p>自分のネガティブな気分の原因を<strong>すべて他人に帰し</strong>、自分が変われる余地を認めない。「あいつのせいで台無しだ」。相手が悪いかどうかとは別に、自分の手札が減るのが問題です。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="qn">11</span>不公平な比較</summary>
+        <div class="body">
+          <p>自分より<strong>うまくやっている人とばかり</strong>比べ、非現実的な基準で自分を採点して「劣っている」と結論する。SNSが得意とする歪みでもあります。</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="note care rv" style="margin-top:26px">
+      <span class="ttl">歪み探しが目的ではない</span>
+      <p class="mb0">「これも歪み、あれも歪み」と自分の思考を採点し始めると、<strong>それ自体が新しい自責の材料</strong>になります。厚労省のマニュアルにも、患者が「自分のマイナス思考ぶりにつらくなった」と言う場面への対処が書かれています<a class="ref" href="#r14">14</a>。名前をつけるのは、責めるためではなく、距離を取るためです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 WAVES ===================== -->
+<section id="waves">
+  <div class="wrap">
+    <span class="sec-no rv">04</span>
+    <h2 class="sec rv">3つの世代 ── CBTはどう変わってきたか</h2>
+    <p class="lede rv">
+      CBTはひとつの固定した技法ではなく、重点を移しながら3つの世代を経てきました。
+      新しい世代が古い世代を否定して置き換えたわけではなく、<strong>いまも相補的に使われています</strong>。
+      「CBT」と一口に言っても、人によって思い浮かべるものが違うのはこのためです。
+    </p>
+
+    <div class="tw rv" style="margin-bottom:26px">
+      <table>
+        <thead>
+          <tr><th style="width:17%">世代</th><th style="width:20%">焦点</th><th>考え方と代表的な技法</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第一世代<br><span style="font-weight:400;color:var(--ink-3);font-size:12.5px">1950年代〜</span></td>
+            <td>行動療法</td>
+            <td>客観的に観察できる<strong>「行動」</strong>に焦点を当て、不適切な学習を正す。曝露療法（エクスポージャー）、系統的脱感作など。<br><span style="color:var(--ink-3);font-size:13px">課題：思考という内面へのアプローチが乏しく、うつ病などで効果が頭打ちになった。</span></td>
+          </tr>
+          <tr>
+            <td>第二世代<br><span style="font-weight:400;color:var(--ink-3);font-size:12.5px">1970年代〜</span></td>
+            <td>行動療法＋認知療法</td>
+            <td><strong>「認知の内容」</strong>に直接働きかけ、歪んだ解釈を現実的なものへ修正する。認知再構成（コラム法）、論理情動行動療法など。ベックのCBTはここ。<br><span style="color:var(--ink-3);font-size:13px">課題：無理にポジティブになろうとして疲れる、という副作用が指摘された。</span></td>
+          </tr>
+          <tr>
+            <td>第三世代<br><span style="font-weight:400;color:var(--ink-3);font-size:12.5px">1990年代〜</span></td>
+            <td>文脈的CBT</td>
+            <td>認知の<strong>内容</strong>ではなく<strong>機能・プロセス</strong>に働きかける。考えを変えようとせず、受け入れて距離を取る。マインドフルネス認知療法、ACT、メタ認知療法など<a class="ref" href="#r19">19</a>。<br><span style="color:var(--ink-3);font-size:13px">重点：症状の除去より「自分が望む価値に向かってどう生きるか」。</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub rv">第三世代が持ち込んだもの ── 抑圧しない</h3>
     <p class="rv">
       ネガティブな感情を無理に押し殺そうとすると、かえってその感情に脳が支配される<strong>リバウンド現象</strong>が起きます。
-      「考えないようにしよう」とするほど、考えてしまう、あれです。
+      「考えないようにしよう」とするほど考えてしまう、あれです。
       これは「シロクマのことを考えるな」と指示された人ほど、あとでシロクマのことを考えてしまうという古典的な実験で確かめられています<a class="ref" href="#r8">8</a>。
     </p>
     <p class="rv">
-      そこで現代的なCBTが目指すのが<strong>ホールネス（全体性）</strong>です。
-      怒りも悲しみも、抑圧すべき異物ではなく、それぞれ役割（機能）を持ったツールとして認め、客観的に受け入れる。
-      怒りは境界線が侵されたことを、悲しみは大切なものを失ったことを教えてくれる信号です。
-      消そうとするのではなく、何を知らせに来たのかを聞く。それがホールネスの姿勢です。
+      だから第三世代は、感情を消そうとしません。怒りも悲しみも、抑圧すべき異物ではなく、それぞれ役割を持った信号として認め、
+      適度な距離を保って付き合う（<strong>アクセプタンス＝受容</strong>）。
+      怒りは境界線が侵されたことを、悲しみは大切なものを失ったことを教えに来ています。
+      消そうとするのではなく、何を知らせに来たのかを聞く。この姿勢の転換が第三世代の核です。
     </p>
 
-    <div class="dd rv" style="margin-top:30px">
+    <h3 class="sub rv">世代を貫く2つの作業</h3>
+    <p class="rv">どの世代のCBTを使うにしても、実作業として共通するのは次の2つです。</p>
+    <div class="grid g2 rv">
+      <div class="card">
+        <span class="label l-think">外在化</span>
+        <h4>脳の外に出す</h4>
+        <p class="mb0">モヤモヤを頭の中で処理せず<strong>紙に書き出す</strong>。頭の中にある限り思考は何度でも形を変えて戻ってきますが、文字として固定されたとたん「観察できる対象」に変わります。このノートに書き込み欄を置いているのも同じ理由で、<strong>読むだけでは外在化は起きません</strong>。</p>
+      </div>
+      <div class="card">
+        <span class="label l-feel">リフレーミング</span>
+        <h4>枠を掛け替える</h4>
+        <p class="mb0">出来事そのものは本来は無色透明で、「良い思い出」にも「嫌な出来事」にもなるのは、そのとき貼りつけた解釈の結果です。<strong>捉え方の枠組みを掛け替える</strong>のがリフレーミング。事実をねじ曲げてポジティブに言い換えることではなく、同じ事実の別の面に光を当て直すことです。</p>
+      </div>
+    </div>
+
+    <div class="dd rv" style="margin-top:26px">
       <div class="col a">
         <h4>× 効きにくい向き合い方</h4>
         <ul>
@@ -701,7 +937,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 <!-- ===================== 03 EVIDENCE ===================== -->
 <section id="evidence">
   <div class="wrap">
-    <span class="sec-no rv">03</span>
+    <span class="sec-no rv">05</span>
     <h2 class="sec rv">エビデンスと、その限界</h2>
     <p class="lede rv">
       CBTはメンタル改善の「ゴールドスタンダード」と呼ばれてきました。
@@ -829,11 +1065,175 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
   </div>
 </section>
 
-<!-- ===================== 04 SEVEN STEPS ===================== -->
+<!-- ===================== 06 SKILLS ===================== -->
+<section id="skills">
+  <div class="wrap">
+    <span class="sec-no rv">06</span>
+    <h2 class="sec rv">代表的な技法</h2>
+    <p class="lede rv">
+      CBTは単一の手法ではなく、目的に応じた技法のパッケージです。
+      認知の側から入るものと、行動・身体の側から入るものがあり、
+      <strong>落ち込みが深いときほど、認知より行動から入るほうがうまくいく</strong>とされます。
+      考える力そのものが落ちているときに、思考の検証を要求しても苦しいだけだからです。
+    </p>
+
+    <h3 class="sub rv">A. 認知の側から入る</h3>
+    <div class="grid g2 rv" style="margin-bottom:20px">
+      <div class="card">
+        <span class="label l-think">中核</span>
+        <h4>認知再構成（コラム法）</h4>
+        <p class="mb0">不快な感情が動いた場面を、<strong>状況・気分・自動思考・根拠・反証・バランス思考・心の変化</strong>の7つの欄に順に書き出していく技法。自動思考を頭ごなしに否定せず、事実を突き合わせて自分で結論を出し直します。<a href="#column">次章で手を動かせます</a>。</p>
+      </div>
+      <div class="card">
+        <span class="label l-think">再発予防</span>
+        <h4>スキーマの同定・修正（下向き矢印法）</h4>
+        <p class="mb0">「その考えが本当だとしたら、自分にとってどういう意味があるか？」を繰り返し、奥にある中核的信念を掘り当てます。同じパターンに繰り返し陥るのを防ぐための作業で、標準プログラムでも終盤に置かれます<a class="ref" href="#r14">14</a>。</p>
+      </div>
+    </div>
+
+    <h3 class="sub rv">B. 行動・身体の側から入る</h3>
+    <ol class="steps rv" style="margin-bottom:20px">
+      <li data-n="1">
+        <h4>行動活性化（BA）</h4>
+        <p>活動量が落ちているとき、まず<strong>活動記録表</strong>で「何をしたか」と「そのときの気分」の関係を観察します。そのうえで、<strong>楽しさ（Enjoyable）</strong>と<strong>達成感（Achieving）</strong>を感じられる活動を段階的にスケジュールへ組み込み、無理のない範囲で実行する。気分が戻るのを待って動くのではなく、<strong>動くことで気分が戻る</strong>順序に賭ける技法です。</p>
+      </li>
+      <li data-n="2">
+        <h4>問題解決療法（PST）</h4>
+        <p>漠然と「もう無理だ」となっている悩みを、6つの手順に分解します。<strong>①問題の定義 → ②具体的な目標の設定 → ③解決策の案出（ブレインストーミング）→ ④解決策の決定（メリット・デメリットの比較）→ ⑤行動計画の立案と実行 → ⑥結果の評価</strong>。案出の段階では実行可能性を判断しないのがコツで、質は量から出ます。</p>
+      </li>
+      <li data-n="3">
+        <h4>漸進的筋弛緩法</h4>
+        <p>手・肩・首など体の一部に<strong>意図的にギューッと力を入れ（緊張）、一気にストンと抜く（弛緩）</strong>動作を順に繰り返します。「力を抜け」と念じても抜けないので、いったん入れてから落とす。身体の過覚醒をゆるめる、道具のいらないリラクゼーション技法です。</p>
+      </li>
+      <li data-n="4">
+        <h4>アサーション・トレーニング</h4>
+        <p>自分の気持ちも相手の気持ちも大切にしながら、穏やかに簡潔に意思を伝える練習。<strong>攻撃的（相手を押しのける）</strong>でも<strong>受動的（自分を差し出す）</strong>でもない第三の言い方＝<strong>アサーティブ</strong>を組み立てます。厚労省のマニュアルでも、「上司はもっと気を使うべきだ」といった言い方や、相手の気持ちを深読みすることを避けるよう促しています<a class="ref" href="#r14">14</a>。</p>
+      </li>
+    </ol>
+
+    <div class="note act rv">
+      <span class="ttl">どれから始めるか</span>
+      <p class="mb0">標準的なプログラムでは、まず心理教育と活動記録から入り、次に<strong>3つのコラム</strong>（状況・気分・自動思考）、それができるようになってから<strong>7つのコラム</strong>、最後にスキーマ、という順に進みます<a class="ref" href="#r14">14</a>。いきなり7つ埋めようとして手が止まるのは、順番の問題であって能力の問題ではありません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 COLUMN ===================== -->
+<section id="column">
+  <div class="wrap">
+    <span class="sec-no rv">07</span>
+    <h2 class="sec rv">実践①　コラム法（7つのコラム）</h2>
+    <p class="lede rv">
+      CBTのセルフケアツールとしてもっとも標準的なのが、この<strong>7つのコラム（非適応的思考記録表）</strong>です。
+      厚生労働省のマニュアルと患者用資料に沿って構成しました<a class="ref" href="#r14">14</a><a class="ref" href="#r17">17</a>。
+      やることは単純で、<strong>「根拠」と「反証」を書き、それを“しかし…”でつなぐ</strong>。それだけです。
+    </p>
+
+    <ol class="steps rv" style="margin-bottom:34px">
+      <li data-n="1">
+        <h4>状況</h4>
+        <p>不快な感情を伴った出来事を、<strong>できるだけ具体的に</strong>。情景がありありと浮かぶくらい、特定の一場面（one slice of time）に絞り、5W1Hで書きます。</p>
+        <p class="ex"><b>例</b>会社で私を残して、事務職のみんなが上司と食事会に行った。</p>
+      </li>
+      <li data-n="2">
+        <h4>気分（0〜100％）</h4>
+        <p>そのときの気分を<strong>一語</strong>で、強さを％で。「これ以上ないほど強い」を100％とします。気分（一語）と思考（文章）を混ぜないのがコツです。</p>
+        <p class="ex"><b>例</b>イライラ（70％）、あせり（65％）、悲しい（80％）</p>
+      </li>
+      <li data-n="3">
+        <h4>自動思考（確信度0〜100％）</h4>
+        <p>そのとき頭に浮かんだ考えやイメージ。それぞれをどれくらい信じているかを％で添え、<strong>いちばん気持ちを動かした「ホットな思考」に○</strong>をつけます。疑問形は言い切りに直して書きます（「どうして自分ばかり？」→「自分ばかりが押しつけられる」）。</p>
+        <p class="ex"><b>例</b>○自分は嫌われている（80％）／仲間はずれにされている（80％）／自分は仕事が遅いだめな人間だ（70％）</p>
+      </li>
+      <li data-n="4">
+        <h4>根拠</h4>
+        <p>その自動思考を裏づける<strong>客観的な事実だけ</strong>を書きます。「きっと〜だろう」「〜に違いない」は想像であって根拠ではありません。相手の心を読むような思い込みは外します。</p>
+        <p class="ex"><b>例</b>食事会に行けず、残業していた。／仕事が進まない。</p>
+      </li>
+      <li data-n="5">
+        <h4>反証</h4>
+        <p>その考えと<strong>矛盾する事実</strong>を探します。行き詰まったら第三者の視点を借りる――「もし他の人が同じように考えていたら、自分は何と言ってあげるか」「元気なときの自分なら、違う見方をしないか」。</p>
+        <p class="ex"><b>例</b>他の事務職の同僚も何人か残業していた。／確かに仕事は締めきりもあり忙しかった。</p>
+      </li>
+      <li data-n="6">
+        <h4>バランス思考（適応的思考）</h4>
+        <p>根拠と反証を<strong>「しかし…」でつないで</strong>、現実的な一文にまとめます。ポジティブに言い換えるのではなく、両方の事実が入った文にするのがポイントです。確信度も％で添えます。</p>
+        <p class="ex"><b>例</b>仕事は締めきりもあり忙しかったので、私に気をつかったのではないか（50％）。／信頼されているからこそ仕事が多いのだ（65％）。</p>
+      </li>
+      <li data-n="7">
+        <h4>心の変化</h4>
+        <p>最初に書いた気分が、いまどう変化したかを％で書き直します。<strong>気分が改善しなくても、これからの対応策や行動プランを思いつければ成功</strong>です<a class="ref" href="#r17">17</a>。</p>
+      </li>
+    </ol>
+
+    <!-- ========== WORKSHEET: COLUMN ========== -->
+    <div class="ws rv" id="column-sheet">
+      <div class="ws-hd">
+        <h4>書き込めるワークシート ── 7つのコラム</h4>
+        <p>入力した内容は、この端末のブラウザ内（localStorage）にだけ保存されます。どこにも送信されません。「印刷」で紙のワークシートとしても使えます。</p>
+      </div>
+      <div class="ws-body">
+        <div class="wq">
+          <p class="q"><span class="s">1</span>状況</p>
+          <p class="hint">いつ・どこで・誰と・何が起きたか。特定の一場面に絞って。</p>
+          <textarea id="c1" placeholder="例：会社で私を残して、事務職のみんなが上司と食事会に行った"></textarea>
+        </div>
+        <div class="wq">
+          <p class="q"><span class="s">2</span>気分（一語＋％）</p>
+          <textarea id="c2" placeholder="例：イライラ 70％、あせり 65％、悲しい 80％"></textarea>
+        </div>
+        <div class="wq">
+          <p class="q"><span class="s">3</span>自動思考（確信度％・ホットな思考に○）</p>
+          <p class="hint">疑問形は言い切りの形に直して書く。</p>
+          <textarea id="c3" style="min-height:110px" placeholder="○自分は嫌われている（80％）&#10;仲間はずれにされている（80％）"></textarea>
+        </div>
+        <div class="wq">
+          <p class="q"><span class="s">4</span>根拠</p>
+          <p class="hint">客観的な事実だけ。「きっと〜だろう」は想像なので書かない。</p>
+          <textarea id="c4" placeholder="その考えを裏づける事実"></textarea>
+        </div>
+        <div class="wq">
+          <p class="q"><span class="s">5</span>反証</p>
+          <p class="hint">矛盾する事実。「友人が同じ考えでいたら何と言うか？」も手がかりに。</p>
+          <textarea id="c5" style="min-height:110px" placeholder="その考えと合わない事実"></textarea>
+        </div>
+        <div class="wq">
+          <p class="q"><span class="s">6</span>バランス思考（適応的思考）</p>
+          <p class="hint">根拠と反証を「しかし…」でつないで一文に。確信度も％で。</p>
+          <textarea id="c6" style="min-height:110px" placeholder="例：仕事は締めきりもあり忙しかった。しかし…（○％）"></textarea>
+        </div>
+        <div class="wq">
+          <p class="q"><span class="s">7</span>心の変化</p>
+          <p class="hint">2で書いた気分は、いま何％になったか。気分が変わらなくても、次の一手が浮かべば成功。</p>
+          <textarea id="c7" placeholder="例：イライラ 70％→40％／次にやること：…"></textarea>
+        </div>
+      </div>
+      <div class="ws-foot">
+        <button class="btn" type="button" id="cs-print">印刷する</button>
+        <button class="btn" type="button" id="cs-clear">内容を消す</button>
+        <span class="msg" id="cs-msg">入力は自動で保存されます</span>
+      </div>
+    </div>
+
+    <div class="note rv" style="margin-top:26px">
+      <span class="ttl">視点を変えるための問いかけ</span>
+      <p>5の「反証」で手が止まったとき、厚労省の患者用資料が挙げている問いです<a class="ref" href="#r17">17</a>。</p>
+      <ul class="list mb0">
+        <li>家族や友人が同じように考えていたら、自分はどうアドバイスするだろう？</li>
+        <li>あの人がここにいたら、どんな見方をしてくれるだろう？</li>
+        <li>元気なときの自分だったら、違う見方をしないだろうか？</li>
+        <li>以前、同じような経験はなかったか。そのときどう対処しただろう？</li>
+        <li>自分ではどうしようもないことで、自分を責めていないだろうか？</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 08 SEVEN STEPS ===================== -->
 <section id="seven">
   <div class="wrap">
-    <span class="sec-no rv">04</span>
-    <h2 class="sec rv">実践①　7ステップ認知行動療法</h2>
+    <span class="sec-no rv">08</span>
+    <h2 class="sec rv">実践②　7ステップ認知行動療法</h2>
     <p class="lede rv">
       アンドリュー・バーンスタインが開発したシンプルなフレームワークです（本人は<strong>ActivInsight</strong>と呼んでいます）<a class="ref" href="#r11">11</a>。
       仕事のトラブルや日常のへこみに対する<strong>応急処置</strong>として機能します。
@@ -954,10 +1354,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 <!-- ===================== 05 TOOLS ===================== -->
 <section id="tools">
   <div class="wrap">
-    <span class="sec-no rv">05</span>
-    <h2 class="sec rv">実践②　リアプレイザルと、人間関係の棚卸し</h2>
+    <span class="sec-no rv">09</span>
+    <h2 class="sec rv">実践③　リアプレイザルと、人間関係の棚卸し</h2>
     <p class="lede rv">
-      7ステップがじっくり書く道具だとすれば、こちらは<strong>その場で効かせる道具</strong>と、
+      コラム法や7ステップがじっくり書く道具だとすれば、こちらは<strong>その場で効かせる道具</strong>と、
       <strong>土台を整える道具</strong>です。前者はトラブル発生の直後に、後者は落ち着いているときに使います。
     </p>
 
@@ -1043,10 +1443,59 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
   </div>
 </section>
 
-<!-- ===================== 06 APPLY ===================== -->
+<!-- ===================== 10 DISORDERS ===================== -->
+<section id="disorders">
+  <div class="wrap">
+    <span class="sec-no rv">10</span>
+    <h2 class="sec rv">症状別の王道アプローチ</h2>
+    <p class="lede rv">
+      CBTは画一的なマニュアルではなく、症状ごとに<strong>最適化された定番の手順</strong>があります。
+      ここは専門家と一緒に取り組む領域ですが、「自分の症状にはどういう治療が想定されているのか」を知っておくと、
+      受診したときに話が早くなります。
+    </p>
+
+    <div class="note care rv" style="margin-bottom:30px">
+      <p class="mb0">以下は<strong>治療法の紹介であり、独力での実施を勧めるものではありません</strong>。とくに曝露法（あえて怖いものに触れる技法）は、手順を誤ると症状を悪化させることがあります。訓練を受けた治療者のもとで行ってください。</p>
+    </div>
+
+    <h3 class="sub rv">うつ病</h3>
+    <ul class="list rv">
+      <li><strong>行動活性化：</strong>生活リズムを整え、楽しさと達成感の得られる行動を少しずつ増やす。</li>
+      <li><strong>問題解決療法：</strong>圧倒されている生活上の課題を、具体的な手順に分解して対処する。</li>
+      <li><strong>認知再構成（コラム法）：</strong>自動思考を検証し、必要ならスキーマまで掘り下げて再発を防ぐ。</li>
+    </ul>
+
+    <h3 class="sub rv">パニック症</h3>
+    <ul class="list feel rv">
+      <li><strong>内部感覚曝露（インタセプティブ曝露）：</strong>発作時に恐れる身体感覚――めまい、過呼吸、心拍上昇――を、安全なダッシュやストロー呼吸などで<strong>あえて意図的に作り出し</strong>、繰り返し直面します。「この感覚は危険ではない」ことを、頭ではなく体に再学習させるのが狙いです。</li>
+      <li><strong>状況曝露：</strong>避けている電車・エレベーター・人混みなどに、段階的に滞在する練習をします。</li>
+    </ul>
+
+    <h3 class="sub rv">強迫症（OCD）</h3>
+    <ul class="list feel rv">
+      <li><strong>曝露反応妨害法（ERP）：</strong>不安を引き起こす刺激（例：汚れたドアノブに触る）に身を置いたまま、不安を打ち消すための強迫行為（例：何分も手を洗う）を<strong>あえて我慢</strong>します。儀式をしなくても不安は自然に下がっていく――この体験の積み重ねが治療の本体です。</li>
+    </ul>
+
+    <h3 class="sub rv">不眠症（CBT-I）</h3>
+    <ul class="list evi rv">
+      <li><strong>刺激制御法：</strong>「ベッド＝眠る場所」という結びつきを取り戻すため、眠れないときは一度ベッドから出て別の部屋で過ごします。ベッドの上で悶々とする時間を作らないのが要点です。</li>
+      <li><strong>睡眠制限法：</strong>寝床にいる時間と実際に眠れている時間のズレを圧縮し、睡眠の密度を高めます。</li>
+      <li>このアプローチは<a href="#evidence">05章</a>で見たとおり、<strong>自助本による独学でも10年後まで効果が残る</strong>ことが確かめられています<a class="ref" href="#r2">2</a>。</li>
+    </ul>
+
+    <h3 class="sub rv">心的外傷後ストレス障害（PTSD）</h3>
+    <ul class="list feel rv">
+      <li><strong>持続曝露療法（PE）：</strong>トラウマ記憶を安全な環境で語り直す「想像曝露」と、避けている現実の場所へ段階的に近づく「現実曝露」を繰り返し、<strong>いまは安全である</strong>ことを再学習します。</li>
+      <li><strong>認知処理療法（CPT）：</strong>「すべて自分のせいだ」といった、出来事に対する極端な固着思考を修正します。</li>
+      <li>PTSDは、<a href="#evidence">05章</a>のメタ分析で<strong>12ヶ月以降にもっとも大きな効果が残っていた</strong>領域でもあります<a class="ref" href="#r1">1</a>。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 11 APPLY ===================== -->
 <section id="apply">
   <div class="wrap">
-    <span class="sec-no rv">06</span>
+    <span class="sec-no rv">11</span>
     <h2 class="sec rv">日常の悩み・身体トラブルへの応用</h2>
     <p class="lede rv">
       CBTの「手順化・マニュアル化できる」という性質は、メンタル疾患の治療にとどまりません。
@@ -1098,6 +1547,21 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       片付けを阻む自動思考（「後で必要になったらどうしよう」など）や、捨てるときの精神的な苦痛を乗り越える方法として整理されています。
     </p>
 
+    <h4 class="rv" style="margin-bottom:14px">片付けを邪魔する2つの自動思考</h4>
+    <div class="grid g2 rv" style="margin-bottom:26px">
+      <div class="card">
+        <span class="label l-think">未来への不安</span>
+        <h4>「後で必要になったらどうしよう」</h4>
+        <p class="mb0">将来の不安から溜め込む思考。対抗するには、手放したときに生活が<strong>どう改善するか</strong>を具体的に書き出します――洗濯や収納の手間が減る、探し物が減る、集中しやすくなる。失うものではなく、戻ってくるものの側を数えます。</p>
+      </div>
+      <div class="card">
+        <span class="label l-feel">過去への執着</span>
+        <h4>「これだけお金と時間をかけたのに」</h4>
+        <p class="mb0">サンクコスト（埋没費用）に囚われる思考。手元に置き続けても<strong>費やしたお金と時間は戻ってきません</strong>。戻らないコストを守るために、場所と手間という新しいコストを払い続けている構図に気づくと、判断が軽くなります。</p>
+      </div>
+    </div>
+
+    <h4 class="rv" style="margin-bottom:14px">実際の進め方</h4>
     <ol class="steps rv">
       <li data-n="1">
         <h4>まず捨てる（脳の負荷を減らす）</h4>
@@ -1122,9 +1586,33 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 <!-- ===================== 07 CHOOSE ===================== -->
 <section id="choose">
   <div class="wrap">
-    <span class="sec-no rv">07</span>
-    <h2 class="sec rv">自分に合うやり方を選ぶ</h2>
+    <span class="sec-no rv">12</span>
+    <h2 class="sec rv">CBTの原則と、自分に合うやり方</h2>
     <p class="lede rv">
+      最後に、CBTを効果的に進めるために重視されている3つの原則を見ておきます。
+      これは治療者と患者のあいだの作法ですが、<strong>ひとりで取り組むときにも、そのまま自分への作法として使えます</strong>。
+    </p>
+
+    <div class="grid g3 rv" style="margin-bottom:30px">
+      <div class="card">
+        <span class="label l-think">01</span>
+        <h4>協同的経験主義</h4>
+        <p class="mb0">治療者が答えを教えるのではなく、患者と治療者が<strong>対等な「共同の科学者」</strong>として組み、その考えが本当に正しいのかを日常生活で実際に検証していく<a class="ref" href="#r14">14</a>。ひとりでやるなら、自分を裁く裁判官ではなく、自分の仮説を試す実験者になるということです。</p>
+      </div>
+      <div class="card">
+        <span class="label l-feel">02</span>
+        <h4>ソクラテス的問答</h4>
+        <p class="mb0">一方的に助言せず、丁寧な問いかけを通じて<strong>本人が自分で気づく</strong>ように促す（誘導による発見）。厚労省のマニュアルは「患者との知恵比べにならないように」「理解に達するには時間が必要」とまで書いています<a class="ref" href="#r14">14</a>。自分に対しても同じで、正解を突きつけるより問いを置くほうが速い。</p>
+      </div>
+      <div class="card">
+        <span class="label l-act">03</span>
+        <h4>ホームワークは必須</h4>
+        <p class="mb0">週1回30〜50分の面接だけでは足りません。<strong>日常生活こそが本当の治療の場</strong>という考えから、毎回の面接の最後に実生活で試す宿題を設定します<a class="ref" href="#r14">14</a>。観念的な議論で終わらせないための仕掛けであり、治療終了後に自力で続けられる理由でもあります。</p>
+      </div>
+    </div>
+
+    <h3 class="sub rv">向き不向きがある</h3>
+    <p class="rv">
       認知行動療法は非常に強力で汎用性の高いツールセットですが、万人に完璧な万能薬というわけではありません。
       向き不向きがあり、それは性格の問題であって、優劣の問題ではありません。
     </p>
@@ -1155,7 +1643,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       <p>いきなり全部をやろうとせず、いまの状態に近いところから始めてください。</p>
       <ul class="list mb0">
         <li><strong>いま、腹が立っている・落ち込んでいる</strong> → <a href="#tools">リアプレイザル</a>を1問だけ自分に問う</li>
-        <li><strong>特定の出来事が頭から離れない</strong> → <a href="#worksheet">7ステップのワークシート</a>を1枚埋める</li>
+        <li><strong>特定の出来事が頭から離れない</strong> → <a href="#column-sheet">7つのコラム</a>を1枚埋める（まずは状況・気分・自動思考の3つだけでも可）</li>
+        <li><strong>「〜すべきなのに」という不満が消えない</strong> → <a href="#worksheet">7ステップのワークシート</a>を1枚埋める</li>
+        <li><strong>何もする気が起きない</strong> → 思考の検証はいったん置いて、<a href="#skills">行動活性化</a>から。動いてから気分がついてきます</li>
         <li><strong>漠然と孤独で、しんどい</strong> → <a href="#tools">ソーシャルサポート分析</a>の4分類を書き出す</li>
       </ul>
     </div>
@@ -1169,7 +1659,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
 <!-- ===================== 08 REFERENCES ===================== -->
 <section id="refs">
   <div class="wrap">
-    <span class="sec-no rv">08</span>
+    <span class="sec-no rv">13</span>
     <h2 class="sec rv">出典・参考文献</h2>
     <p class="lede rv">
       本文中の<a class="ref" href="#refs">数字</a>は、以下の文献に対応しています。
@@ -1226,6 +1716,36 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       </li>
     </ol>
 
+    <h3 class="sub rv">臨床マニュアル・原典</h3>
+    <ol class="refs rv" start="14" style="counter-reset:r 13">
+      <li id="r14">
+        <span class="cite">厚生労働科学研究費補助金こころの健康科学研究事業「精神療法の実施方法と有効性に関する研究」<em>うつ病の認知療法・認知行動療法 治療者用マニュアル</em>（編集：慶應義塾大学認知行動療法研究会）.</span>
+        <span class="what">CBTの定義、ベックによる開発の経緯、自動思考とスキーマ、3つのコラム／7つのコラムの書き方、協同的経験主義・ソクラテス的問答・ホームワークなど、本ノートの臨床的な記述の主たる出典。全16〜20回の標準プログラムの構成もここに基づく。</span>
+        <a href="https://www.mhlw.go.jp/bunya/shougaihoken/kokoro/dl/01.pdf">mhlw.go.jp/bunya/shougaihoken/kokoro/dl/01.pdf</a>
+      </li>
+      <li id="r15">
+        <span class="cite">Beck AT, Rush AJ, Shaw BF, Emery G. <em>Cognitive Therapy of Depression</em>. New York: Guilford Press, 1979.</span>
+        <span class="what">認知療法の原典。「体系的な推論の誤り」として恣意的推論・選択的注目・過度の一般化・拡大解釈と過小評価・個人化・二分法的思考などを挙げている。</span>
+      </li>
+      <li id="r16">
+        <span class="cite">Greenberger D, Padesky CA. <em>Mind Over Mood: Change How You Feel by Changing the Way You Think</em>. New York: Guilford Press, 1995（邦訳『うつと不安の認知療法練習帳』）.</span>
+        <span class="what">状況（環境）・思考・気分・行動・身体反応の5領域モデル（five-part model）の出典。5つが相互に影響し合うもので、思考だけが起点ではないという点を強調している。</span>
+      </li>
+      <li id="r17">
+        <span class="cite">同研究事業『うつ病の認知療法・認知行動療法（患者さんのための資料）』.</span>
+        <span class="what">「認知のかたより（アンバランス）」の7パターン（感情的きめつけ／選択的注目／過度の一般化／拡大解釈と過小評価／自己非難／0か100か思考／自分で実現してしまう予言）と、視点を変えるための問いかけの出典。</span>
+        <a href="https://www.mhlw.go.jp/bunya/shougaihoken/kokoro/dl/04.pdf">mhlw.go.jp/bunya/shougaihoken/kokoro/dl/04.pdf</a>
+      </li>
+      <li id="r18">
+        <span class="cite">Leahy RL, Holland SJF, McGinn LK. <em>Treatment Plans and Interventions for Depression and Anxiety Disorders</em>（2nd ed.）. New York: Guilford Press, 2012 ／ Leahy RL. <em>Cognitive Therapy Techniques: A Practitioner's Guide</em>（2nd ed.）. 2017.</span>
+        <span class="what">認知の歪みのチェックリスト。本ノートの「すべき思考（shoulds）」「他者非難（blaming）」「不公平な比較（unfair comparisons）」はこの系統のリストにあたる。</span>
+      </li>
+      <li id="r19">
+        <span class="cite">Hayes SC. Acceptance and commitment therapy, relational frame theory, and the third wave of behavioral and cognitive therapies. <em>Behavior Therapy</em>. 2004;35(4):639–665.</span>
+        <span class="what">「第三世代（third wave）」という区分を提唱した論文。アクセプタンス、マインドフルネス、脱フュージョン、価値などを共通の特徴として挙げている。</span>
+      </li>
+    </ol>
+
     <h3 class="sub rv">書籍・講座</h3>
     <ol class="refs rv" start="11" style="counter-reset:r 10">
       <li id="r11">
@@ -1275,13 +1795,21 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
       </details>
       <details>
         <summary><span class="qn">未確認</span>「ホールネス（全体性）」という用語</summary>
-        <div class="body"><p class="mb0">感情を抑圧せず受け入れるという考え方は、ACT（アクセプタンス＆コミットメント・セラピー）などの第三世代CBTに共通します。ただし<strong>「ホールネス」が特定の学派の確立した専門用語である</strong>ことは確認できませんでした。なおリバウンド現象そのものには明確な出典があります<a class="ref" href="#r8">8</a>。</p></div>
+        <div class="body"><p class="mb0">感情を抑圧せず受け入れるという考え方は、ACTなど第三世代CBTに共通するものです<a class="ref" href="#r19">19</a>。ただし<strong>「ホールネス」が特定の学派の確立した専門用語である</strong>ことは確認できなかったため、<a href="#waves">04章</a>では「アクセプタンス（受容）」という一般的な用語に置き換えています。なおリバウンド現象そのものには明確な出典があります<a class="ref" href="#r8">8</a>。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">補足</span>認知のかたより「11パターン」というまとまり</summary>
+        <div class="body"><p class="mb0">認知の歪みには<strong>公式の決定版リストが存在しません</strong>。厚労省の患者用資料は7つ<a class="ref" href="#r17">17</a>、ベックの原著は「体系的な推論の誤り」として別の切り口<a class="ref" href="#r15">15</a>、リーヒーらのチェックリストは十数項目<a class="ref" href="#r18">18</a>と、文献ごとに数も名前も違います。<a href="#bias">03章</a>の11という数は、これらを合成した便宜的なもので、どこかに「11パターン」という定説があるわけではありません。</p></div>
+      </details>
+      <details>
+        <summary><span class="qn">未確認</span>各世代の年代区分（1950／1970／1990年代）</summary>
+        <div class="body"><p class="mb0">3つの世代という区分と第三世代の特徴づけはヘイズの論文が出典です<a class="ref" href="#r19">19</a>。ただし<strong>各世代の開始年をこの3つの年代にきれいに割り当てる</strong>のは教科書的な整理であって、原典にこの区切りが明記されているわけではありません。おおよその目安として読んでください。</p></div>
       </details>
     </div>
 
     <div class="note rv" style="margin-top:26px">
       <span class="ttl">確認して修正した点</span>
-      <p class="mb0">原典にあたった結果、元にした資料の記述と食い違った箇所が3つあり、このノートでは原典の数値に合わせています。①不眠症の「66％」は治療終了直後ではなく<strong>10年後</strong>の数字で、1年後は64％<a class="ref" href="#r2">2</a>。②CBTの効果低下を報告したメタ解析の対象期間は1997年からではなく<strong>1977年</strong>から<a class="ref" href="#r4">4</a>。③腰痛でCBTがMBSRを上回ったのは痛みそのものではなく<strong>不安の指標</strong>で、痛み・機能では両者に有意差なし<a class="ref" href="#r7">7</a>。</p>
+      <p class="mb0">原典にあたった結果、元にした資料の記述と食い違った箇所があり、このノートでは原典に合わせています。①不眠症の「66％」は治療終了直後ではなく<strong>10年後</strong>の数字で、1年後は64％<a class="ref" href="#r2">2</a>。②CBTの効果低下を報告したメタ解析の対象期間は1997年からではなく<strong>1977年</strong>から<a class="ref" href="#r4">4</a>。③腰痛でCBTがMBSRを上回ったのは痛みそのものではなく<strong>不安の指標</strong>で、痛み・機能では両者に有意差なし<a class="ref" href="#r7">7</a>。④不安障害への長期効果は一律ではなく、<strong>パニック症では12ヶ月以降の効果が有意でない</strong><a class="ref" href="#r1">1</a>。⑤認知のかたよりは、厚労省の患者用資料では<strong>11ではなく7パターン</strong><a class="ref" href="#r17">17</a>。</p>
     </div>
   </div>
 </section>
@@ -1378,47 +1906,72 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--sur
   tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 
   /* ---------- ワークシート ----------
-     入力はこの端末のlocalStorageにだけ保存する。外部送信は一切しない。 */
-  var KEY='cbt7-worksheet-v1';
-  var ids=['w1','w2','w3a','w3b','w4','w5','w6a','w6b','w7'];
-  var els={}; ids.forEach(function(id){ els[id]=document.getElementById(id); });
-  var o2=document.getElementById('w2o'), o7=document.getElementById('w7o'), diff=document.getElementById('wdiff');
-  var msg=document.getElementById('ws-msg');
-
+     入力はこの端末のlocalStorageにだけ保存する。外部送信は一切しない。
+     7ステップ用と7つのコラム用の2枚を、同じ仕組みで動かす。 */
   function store(){
     try{ return window.localStorage; }catch(e){ return null; }
   }
-  function render(){
-    var a=Number(els.w2.value), b=Number(els.w7.value), d=b-a;
-    o2.textContent=a+' / 10'; o7.textContent=b+' / 10';
-    var tail = d<0 ? '（'+d+'　やわらいだ）' : d>0 ? '（+'+d+'　強まった）' : '（変化なし）';
-    diff.innerHTML='STEP2：<b>'+a+'</b> → STEP7：<b>'+b+'</b>'+tail;
-  }
-  function save(){
-    var s=store(); if(!s) return;
-    var data={}; ids.forEach(function(id){ data[id]=els[id].value; });
-    try{ s.setItem(KEY, JSON.stringify(data)); msg.textContent='保存しました（この端末内のみ）'; }
-    catch(e){ msg.textContent='この環境では保存できません'; }
-  }
-  function load(){
-    var s=store(); if(!s) return;
-    try{
-      var data=JSON.parse(s.getItem(KEY)||'{}');
-      ids.forEach(function(id){ if(typeof data[id]==='string') els[id].value=data[id]; });
-    }catch(e){}
+
+  function setupSheet(cfg){
+    var els={}, ok=true;
+    cfg.ids.forEach(function(id){
+      els[id]=document.getElementById(id);
+      if(!els[id]) ok=false;
+    });
+    var msg=document.getElementById(cfg.msg);
+    if(!ok || !msg) return;
+
+    function save(){
+      var s=store(); if(!s) return;
+      var data={}; cfg.ids.forEach(function(id){ data[id]=els[id].value; });
+      try{ s.setItem(cfg.key, JSON.stringify(data)); msg.textContent='保存しました（この端末内のみ）'; }
+      catch(e){ msg.textContent='この環境では保存できません'; }
+    }
+    function load(){
+      var s=store(); if(!s) return;
+      try{
+        var data=JSON.parse(s.getItem(cfg.key)||'{}');
+        cfg.ids.forEach(function(id){ if(typeof data[id]==='string') els[id].value=data[id]; });
+      }catch(e){}
+    }
+    function render(){ if(cfg.render) cfg.render(els); }
+
+    load(); render();
+    cfg.ids.forEach(function(id){
+      els[id].addEventListener('input',function(){ render(); save(); });
+    });
+    document.getElementById(cfg.print).addEventListener('click',function(){ window.print(); });
+    document.getElementById(cfg.clear).addEventListener('click',function(){
+      if(!window.confirm('入力した内容をすべて消します。よろしいですか？')) return;
+      cfg.ids.forEach(function(id){
+        els[id].value = (els[id].type==='range') ? cfg.defaults[id] : '';
+      });
+      var s=store(); if(s){ try{ s.removeItem(cfg.key); }catch(e){} }
+      render(); msg.textContent='消去しました';
+    });
   }
 
-  load(); render();
-  ids.forEach(function(id){
-    els[id].addEventListener('input',function(){ render(); save(); });
+  /* 7ステップ：STEP2 と STEP7 の点数差を出す */
+  var o2=document.getElementById('w2o'), o7=document.getElementById('w7o'), diff=document.getElementById('wdiff');
+  setupSheet({
+    key:'cbt7-worksheet-v1',
+    ids:['w1','w2','w3a','w3b','w4','w5','w6a','w6b','w7'],
+    defaults:{w2:8,w7:8},
+    print:'ws-print', clear:'ws-clear', msg:'ws-msg',
+    render:function(els){
+      var a=Number(els.w2.value), b=Number(els.w7.value), d=b-a;
+      o2.textContent=a+' / 10'; o7.textContent=b+' / 10';
+      var tail = d<0 ? '（'+d+'　やわらいだ）' : d>0 ? '（+'+d+'　強まった）' : '（変化なし）';
+      diff.innerHTML='STEP2：<b>'+a+'</b> → STEP7：<b>'+b+'</b>'+tail;
+    }
   });
-  document.getElementById('ws-print').addEventListener('click',function(){ window.print(); });
-  document.getElementById('ws-clear').addEventListener('click',function(){
-    if(!window.confirm('入力した内容をすべて消します。よろしいですか？')) return;
-    els.w1.value=els.w3a.value=els.w3b.value=els.w4.value=els.w5.value=els.w6a.value=els.w6b.value='';
-    els.w2.value=8; els.w7.value=8;
-    var s=store(); if(s){ try{ s.removeItem(KEY); }catch(e){} }
-    render(); msg.textContent='消去しました';
+
+  /* 7つのコラム：自由記述のみ */
+  setupSheet({
+    key:'cbt-column-worksheet-v1',
+    ids:['c1','c2','c3','c4','c5','c6','c7'],
+    defaults:{},
+    print:'cs-print', clear:'cs-clear', msg:'cs-msg'
   });
 })();
 </script>
